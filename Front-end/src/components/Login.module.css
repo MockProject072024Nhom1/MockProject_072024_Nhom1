@@ -1,0 +1,99 @@
+/* Login.module.css */
+.container {
+    display: flex;
+    width: 800px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+body{
+    background-color: #333;
+}
+.loginSection, .welcomeSection {
+    padding: 40px;
+}
+
+.loginSection {
+    background-color: #333;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginSection h2 {
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+}
+
+.rememberForgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rememberForgot a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.btnCustom {
+    padding: 10px;
+    border: none;
+    background-color: #111110;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btnCustom:hover {
+    background-color: #070707;
+}
+
+.createAccount {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.createAccount a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.welcomeSection {
+    background-color: #222;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeSection img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.welcomeSection h1 {
+    margin-bottom: 10px;
+}
+
+.welcomeSection p {
+    color: #f1c40f;
+}
+.textCenter{
+    color: white;
+}
