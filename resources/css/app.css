@@ -4,17 +4,45 @@
 
 
 @layer utilities {
-    .border-gradient {
-      border: 1px solid;
-      border-image-slice: 1;
-      border-width: 1px;
-      border-image-source: linear-gradient(to right, #E6F90B, #F31982);
-      border-radius: 6px;
+  .border-gradient {
+    border: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, #E6F90B, #F31982);
+    border-radius: 6px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to bottom, #E6F90B, #F31982);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+  /* Responsive Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .form-left {
+      width: 100%;
+      height: auto;
+      margin: 4px;
     }
 
-    .text-gradient {
-        background: linear-gradient(to bottom, #E6F90B, #F31982);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+    .form-right {
+      display: none;
+    }
   }
+
+  /* Responsive Mobile */
+  @media (max-width: 767px) {
+    .form-left {
+      width: 100%;
+      height: auto;
+      margin: 4px;
+    }
+
+    .form-right {
+      display: none;
+    }
+  }
+
+}
