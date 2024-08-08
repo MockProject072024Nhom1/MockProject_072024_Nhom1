@@ -108,7 +108,7 @@ li a {
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    margin: 20px auto; /* Tạo khoảng cách đều hai bên và khoảng cách trên và dưới */
+    margin: 20px auto;
 }
 
 .date-label, .time-label {
@@ -179,7 +179,7 @@ li a {
 footer {
     background-color: #1c1b1b;
     font-size: 15px;
-    padding-top: 30px;
+    padding: 30px 0;
     color: #ffffff;
     margin-top: auto;
 }
@@ -187,14 +187,15 @@ footer {
 .footer-content {
     width: 100%;
     max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
+    margin: 0 auto;
+    padding: 120px 20px 40px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Đảm bảo nội dung của footer không bị tràn ra ngoài */
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.footer-content_left, .footer-content_right {
+.footer-content_right, .footer-content_left {
     display: flex;
     flex-direction: column;
 }
@@ -212,19 +213,25 @@ footer {
 }
 
 .footer-content_center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -120px;
+    text-align: center;
 }
 
 .footer-content_center--image img {
     width: 120px;
+}
+
+.footer-content_center--image {
     margin-bottom: 20px;
 }
 
 .footer-content_center--logos {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     gap: 15px;
 }
 
@@ -242,17 +249,29 @@ footer {
     height: 55px;
     width: 1px;
     background-color: lightgrey;
-    margin: 30px auto 0;
+    margin: 30px auto 0 auto;
 }
 
-/* Responsive Footer */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+    }
+
+    .footer-content_left, .footer-content_right {
+        margin: 0;
+        align-items: center;
     }
 
     .footer-content_center {
         margin-top: 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .footer-content_center--logos i {
+        font-size: 24px;
+    }
+}
+
+
