@@ -1,0 +1,134 @@
+body {
+    background-color: #2f2e2e;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.login_div {
+    border-right: solid white 2px;
+    width: 700px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_div {
+    width: 500px;
+}
+
+.form_div h1 {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+i {
+    font-size: 70%;
+    margin-right: 10px;
+}
+
+.form_div--text label, .form_div--text input, button {
+    display: block;
+    color: grey;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.form_div--text input {
+    padding-left: 20px;
+    box-sizing: border-box;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #222121;
+    border: none;
+    color: white;
+}
+
+.form_div--checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: grey;
+    margin-bottom: 18px;
+}
+
+.form_div--checkbox input {
+    margin: 0;
+}
+
+.form_div--checkbox a {
+    color: #f31982;
+    text-decoration: none;
+}
+
+button {
+    position: relative;
+    padding: 9px;
+    background-color: #111111;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(to bottom, #e6f90b, #f31982);
+    border-radius: inherit;
+}
+
+button:hover {
+    background-color: #222121;
+}
+
+.form_div--createaccount {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 20px;
+}
+
+.form_div--createaccount a {
+    color: grey;
+    text-decoration: none;
+}
+
+.brand_div {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand_div img {
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+#brand_div_1header {
+    margin: 0;
+    font-size: 40px;
+    color: grey;
+}
+
+#brand_div_2header {
+    font-size: 30px;
+    background: linear-gradient(to bottom, #e6f90b, #f31982);
+    -webkit-background-clip: text;
+    color: transparent;
+}
