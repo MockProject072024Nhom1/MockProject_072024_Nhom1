@@ -1,6 +1,6 @@
 import React from 'react';
-import { Checkbox } from '@mui/material';
 import { HiMiniUser, HiLockClosed, HiEyeSlash } from 'react-icons/hi2';
+import Checkbox from '@mui/material/Checkbox';
 import logo from '../../../assets/images/logo.png';
 
 const Login = () => {
