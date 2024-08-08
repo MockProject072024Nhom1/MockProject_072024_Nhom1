@@ -24,6 +24,18 @@ body {
     flex-wrap: wrap;
 }
 
+.navdiv a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.navdiv a:hover{
+    color: #ff6b6b;
+}
+
 .logo a {
     display: flex;
     align-items: center;
@@ -172,7 +184,7 @@ li a {
 }
 
 html, body {
-    height: 100%; /* Đảm bảo HTML và body chiếm toàn bộ chiều cao màn hình */
+    height: 100%;
     margin: 0;
 }
 
@@ -190,7 +202,7 @@ footer {
     font-size: 15px;
     padding-top: 30px;
     color: #ffffff;
-    margin-top: auto; /* Đẩy footer xuống dưới cùng */
+    margin-top: auto;
 }
 
 .footer-content {
