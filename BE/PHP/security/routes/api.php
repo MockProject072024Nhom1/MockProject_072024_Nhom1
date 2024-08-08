@@ -29,3 +29,14 @@ Route::prefix('users')->group(function () {
     Route::put('/{UserId}', [UserController::class, 'update']);
     Route::delete('/{UserId}', [UserController::class, 'destroy']);
 });
+
+Route::prefix('feedback')->group(function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/{UserId}', [UserController::class, 'show']);
+    Route::post('/', [UserController::class, 'store']);
+});
+
+Route::prefix('notifications')->group(function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/{UserId}', [UserController::class, 'show']);
+});
