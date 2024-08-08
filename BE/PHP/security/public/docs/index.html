@@ -1,0 +1,2508 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var tryItOutBaseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.37.1.js"></script>
+
+    <script src="../docs/js/theme-default-4.37.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-contracts">
+                                <a href="#endpoints-GETapi-contracts">GET api/contracts</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-contracts--ContractId-">
+                                <a href="#endpoints-GETapi-contracts--ContractId-">GET api/contracts/{ContractId}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-contracts">
+                                <a href="#endpoints-POSTapi-contracts">POST api/contracts</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-contracts--ContractId-">
+                                <a href="#endpoints-PUTapi-contracts--ContractId-">PUT api/contracts/{ContractId}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-contracts--ContractId-">
+                                <a href="#endpoints-DELETEapi-contracts--ContractId-">DELETE api/contracts/{ContractId}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-users">
+                                <a href="#endpoints-GETapi-users">GET api/users</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-users--UserId-">
+                                <a href="#endpoints-GETapi-users--UserId-">GET api/users/{UserId}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-users">
+                                <a href="#endpoints-POSTapi-users">POST api/users</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-users--UserId-">
+                                <a href="#endpoints-PUTapi-users--UserId-">PUT api/users/{UserId}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-users--UserId-">
+                                <a href="#endpoints-DELETEapi-users--UserId-">DELETE api/users/{UserId}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: August 8, 2024</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-contracts">GET api/contracts</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-contracts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/contracts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/contracts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-contracts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;ContractId&quot;: 1,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-01-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-01-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-01-10 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;5000.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+        &quot;File&quot;: &quot;contract1.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;3&quot;,
+        &quot;RegistrationId&quot;: &quot;1&quot;
+    },
+    {
+        &quot;ContractId&quot;: 2,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-02-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-02-10 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-02-15 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;2000.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract2.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;1&quot;,
+        &quot;RegistrationId&quot;: &quot;2&quot;
+    },
+    {
+        &quot;ContractId&quot;: 3,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-03-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-03-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-03-12 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3000.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: null,
+        &quot;File&quot;: &quot;contract3.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;6&quot;,
+        &quot;RegistrationId&quot;: &quot;3&quot;
+    },
+    {
+        &quot;ContractId&quot;: 4,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-04-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-04-10 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-04-20 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;4000.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract4.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;7&quot;,
+        &quot;RegistrationId&quot;: &quot;4&quot;
+    },
+    {
+        &quot;ContractId&quot;: 5,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-05-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-05-10 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-05-15 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3500.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+        &quot;File&quot;: &quot;contract5.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;5&quot;,
+        &quot;RegistrationId&quot;: &quot;5&quot;
+    },
+    {
+        &quot;ContractId&quot;: 6,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-06-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-06-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-06-10 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;4500.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract6.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;1&quot;,
+        &quot;RegistrationId&quot;: &quot;6&quot;
+    },
+    {
+        &quot;ContractId&quot;: 7,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-07-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-07-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-07-12 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;2500.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: null,
+        &quot;File&quot;: &quot;contract7.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;3&quot;,
+        &quot;RegistrationId&quot;: &quot;7&quot;
+    },
+    {
+        &quot;ContractId&quot;: 8,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-08-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-08-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-08-12 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3200.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract8.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;6&quot;,
+        &quot;RegistrationId&quot;: &quot;8&quot;
+    },
+    {
+        &quot;ContractId&quot;: 9,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-09-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-09-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-09-10 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3700.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+        &quot;File&quot;: &quot;contract9.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;7&quot;,
+        &quot;RegistrationId&quot;: &quot;9&quot;
+    },
+    {
+        &quot;ContractId&quot;: 10,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-10-01 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-10-05 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-10-10 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;4200.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract10.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;5&quot;,
+        &quot;RegistrationId&quot;: &quot;10&quot;
+    },
+    {
+        &quot;ContractId&quot;: 11,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-01-02 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-01-06 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-01-12 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;5100.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+        &quot;File&quot;: &quot;contract11.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;11&quot;,
+        &quot;RegistrationId&quot;: &quot;11&quot;
+    },
+    {
+        &quot;ContractId&quot;: 12,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-02-03 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-02-11 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-02-16 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;2200.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract12.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;12&quot;,
+        &quot;RegistrationId&quot;: &quot;12&quot;
+    },
+    {
+        &quot;ContractId&quot;: 13,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-03-04 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-03-07 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-03-13 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3400.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: null,
+        &quot;File&quot;: &quot;contract13.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;13&quot;,
+        &quot;RegistrationId&quot;: &quot;13&quot;
+    },
+    {
+        &quot;ContractId&quot;: 14,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-04-05 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-04-11 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-04-21 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;4200.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Cash&quot;,
+        &quot;PaymentStatus&quot;: &quot;Completed&quot;,
+        &quot;File&quot;: &quot;contract14.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;14&quot;,
+        &quot;RegistrationId&quot;: &quot;14&quot;
+    },
+    {
+        &quot;ContractId&quot;: 15,
+        &quot;ContractName&quot;: null,
+        &quot;CreatedAt&quot;: &quot;2024-05-06 00:00:00.000&quot;,
+        &quot;StartDate&quot;: &quot;2024-05-12 00:00:00.000&quot;,
+        &quot;FinishDate&quot;: &quot;2024-05-18 00:00:00.000&quot;,
+        &quot;Cost&quot;: &quot;3600.00&quot;,
+        &quot;PaymentMethod&quot;: &quot;Online&quot;,
+        &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+        &quot;File&quot;: &quot;contract15.pdf&quot;,
+        &quot;SupervisorId&quot;: &quot;15&quot;,
+        &quot;RegistrationId&quot;: &quot;15&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-contracts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-contracts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-contracts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-contracts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-contracts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-contracts" data-method="GET"
+      data-path="api/contracts"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-contracts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-contracts"
+                    onclick="tryItOut('GETapi-contracts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-contracts"
+                    onclick="cancelTryOut('GETapi-contracts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-contracts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/contracts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-contracts--ContractId-">GET api/contracts/{ContractId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-contracts--ContractId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/contracts/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/contracts/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-contracts--ContractId-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;ContractId&quot;: 1,
+    &quot;ContractName&quot;: null,
+    &quot;CreatedAt&quot;: &quot;2024-01-01 00:00:00.000&quot;,
+    &quot;StartDate&quot;: &quot;2024-01-05 00:00:00.000&quot;,
+    &quot;FinishDate&quot;: &quot;2024-01-10 00:00:00.000&quot;,
+    &quot;Cost&quot;: &quot;5000.00&quot;,
+    &quot;PaymentMethod&quot;: &quot;Online&quot;,
+    &quot;PaymentStatus&quot;: &quot;30% Prepayment&quot;,
+    &quot;File&quot;: &quot;contract1.pdf&quot;,
+    &quot;SupervisorId&quot;: &quot;3&quot;,
+    &quot;RegistrationId&quot;: &quot;1&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-contracts--ContractId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-contracts--ContractId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-contracts--ContractId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-contracts--ContractId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-contracts--ContractId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-contracts--ContractId-" data-method="GET"
+      data-path="api/contracts/{ContractId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-contracts--ContractId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-contracts--ContractId-"
+                    onclick="tryItOut('GETapi-contracts--ContractId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-contracts--ContractId-"
+                    onclick="cancelTryOut('GETapi-contracts--ContractId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-contracts--ContractId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/contracts/{ContractId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ContractId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ContractId"                data-endpoint="GETapi-contracts--ContractId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-contracts">POST api/contracts</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-contracts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/contracts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"ContractName\": \"wupqhwqndsktigc\",
+    \"CreatedAt\": \"2024-08-08T04:28:21\",
+    \"StartDate\": \"2024-08-08T04:28:21\",
+    \"FinishDate\": \"2024-08-08T04:28:21\",
+    \"Cost\": 34439.22,
+    \"PaymentMethod\": \"Cash\",
+    \"PaymentStatus\": \"30% Prepayment\",
+    \"File\": \"reiciendis\",
+    \"SupervisorId\": \"eveniet\",
+    \"RegistrationId\": \"ea\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/contracts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ContractName": "wupqhwqndsktigc",
+    "CreatedAt": "2024-08-08T04:28:21",
+    "StartDate": "2024-08-08T04:28:21",
+    "FinishDate": "2024-08-08T04:28:21",
+    "Cost": 34439.22,
+    "PaymentMethod": "Cash",
+    "PaymentStatus": "30% Prepayment",
+    "File": "reiciendis",
+    "SupervisorId": "eveniet",
+    "RegistrationId": "ea"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-contracts">
+</span>
+<span id="execution-results-POSTapi-contracts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-contracts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-contracts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-contracts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-contracts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-contracts" data-method="POST"
+      data-path="api/contracts"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-contracts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-contracts"
+                    onclick="tryItOut('POSTapi-contracts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-contracts"
+                    onclick="cancelTryOut('POSTapi-contracts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-contracts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/contracts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ContractName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ContractName"                data-endpoint="POSTapi-contracts"
+               value="wupqhwqndsktigc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>wupqhwqndsktigc</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>CreatedAt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="CreatedAt"                data-endpoint="POSTapi-contracts"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>StartDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="StartDate"                data-endpoint="POSTapi-contracts"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>FinishDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="FinishDate"                data-endpoint="POSTapi-contracts"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Cost</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="Cost"                data-endpoint="POSTapi-contracts"
+               value="34439.22"
+               data-component="body">
+    <br>
+<p>Example: <code>34439.22</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PaymentMethod</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="PaymentMethod"                data-endpoint="POSTapi-contracts"
+               value="Cash"
+               data-component="body">
+    <br>
+<p>Example: <code>Cash</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Online</code></li> <li><code>Cash</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PaymentStatus</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="PaymentStatus"                data-endpoint="POSTapi-contracts"
+               value="30% Prepayment"
+               data-component="body">
+    <br>
+<p>Example: <code>30% Prepayment</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>30% Prepayment</code></li> <li><code>Completed</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>File</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="File"                data-endpoint="POSTapi-contracts"
+               value="reiciendis"
+               data-component="body">
+    <br>
+<p>Example: <code>reiciendis</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>SupervisorId</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="SupervisorId"                data-endpoint="POSTapi-contracts"
+               value="eveniet"
+               data-component="body">
+    <br>
+<p>Example: <code>eveniet</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>RegistrationId</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="RegistrationId"                data-endpoint="POSTapi-contracts"
+               value="ea"
+               data-component="body">
+    <br>
+<p>Example: <code>ea</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-contracts--ContractId-">PUT api/contracts/{ContractId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-contracts--ContractId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/contracts/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"ContractName\": \"z\",
+    \"CreatedAt\": \"2024-08-08T04:28:21\",
+    \"StartDate\": \"2024-08-08T04:28:21\",
+    \"FinishDate\": \"2024-08-08T04:28:21\",
+    \"Cost\": 4.4262,
+    \"PaymentMethod\": \"Online\",
+    \"PaymentStatus\": \"Completed\",
+    \"File\": \"iusto\",
+    \"SupervisorId\": \"placeat\",
+    \"RegistrationId\": \"est\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/contracts/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ContractName": "z",
+    "CreatedAt": "2024-08-08T04:28:21",
+    "StartDate": "2024-08-08T04:28:21",
+    "FinishDate": "2024-08-08T04:28:21",
+    "Cost": 4.4262,
+    "PaymentMethod": "Online",
+    "PaymentStatus": "Completed",
+    "File": "iusto",
+    "SupervisorId": "placeat",
+    "RegistrationId": "est"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-contracts--ContractId-">
+</span>
+<span id="execution-results-PUTapi-contracts--ContractId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-contracts--ContractId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-contracts--ContractId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-contracts--ContractId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-contracts--ContractId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-contracts--ContractId-" data-method="PUT"
+      data-path="api/contracts/{ContractId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-contracts--ContractId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-contracts--ContractId-"
+                    onclick="tryItOut('PUTapi-contracts--ContractId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-contracts--ContractId-"
+                    onclick="cancelTryOut('PUTapi-contracts--ContractId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-contracts--ContractId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/contracts/{ContractId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ContractId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ContractId"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ContractName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ContractName"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="z"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>z</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>CreatedAt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="CreatedAt"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>StartDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="StartDate"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>FinishDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="FinishDate"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="2024-08-08T04:28:21"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2024-08-08T04:28:21</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Cost</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="Cost"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="4.4262"
+               data-component="body">
+    <br>
+<p>Example: <code>4.4262</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PaymentMethod</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="PaymentMethod"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="Online"
+               data-component="body">
+    <br>
+<p>Example: <code>Online</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Online</code></li> <li><code>Cash</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PaymentStatus</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="PaymentStatus"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="Completed"
+               data-component="body">
+    <br>
+<p>Example: <code>Completed</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>30% Prepayment</code></li> <li><code>Completed</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>File</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="File"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="iusto"
+               data-component="body">
+    <br>
+<p>Example: <code>iusto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>SupervisorId</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="SupervisorId"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="placeat"
+               data-component="body">
+    <br>
+<p>Example: <code>placeat</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>RegistrationId</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="RegistrationId"                data-endpoint="PUTapi-contracts--ContractId-"
+               value="est"
+               data-component="body">
+    <br>
+<p>Example: <code>est</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-contracts--ContractId-">DELETE api/contracts/{ContractId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-contracts--ContractId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/contracts/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/contracts/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-contracts--ContractId-">
+</span>
+<span id="execution-results-DELETEapi-contracts--ContractId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-contracts--ContractId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-contracts--ContractId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-contracts--ContractId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-contracts--ContractId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-contracts--ContractId-" data-method="DELETE"
+      data-path="api/contracts/{ContractId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-contracts--ContractId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-contracts--ContractId-"
+                    onclick="tryItOut('DELETEapi-contracts--ContractId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-contracts--ContractId-"
+                    onclick="cancelTryOut('DELETEapi-contracts--ContractId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-contracts--ContractId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/contracts/{ContractId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-contracts--ContractId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ContractId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ContractId"                data-endpoint="DELETEapi-contracts--ContractId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-users">GET api/users</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;UserId&quot;: 1,
+        &quot;FirstName&quot;: &quot;John&quot;,
+        &quot;LastName&quot;: &quot;Doe&quot;,
+        &quot;Email&quot;: &quot;john.doe@example.com&quot;,
+        &quot;Password&quot;: &quot;password1&quot;,
+        &quot;Avatar&quot;: &quot;avatar1.jpg&quot;,
+        &quot;Address&quot;: &quot;123 Main St&quot;,
+        &quot;PhoneNumber&quot;: &quot;1234567890&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1985-05-15 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;1&quot;,
+        &quot;CityId&quot;: &quot;1&quot;
+    },
+    {
+        &quot;UserId&quot;: 2,
+        &quot;FirstName&quot;: &quot;Jane&quot;,
+        &quot;LastName&quot;: &quot;Smith&quot;,
+        &quot;Email&quot;: &quot;jane.smith@example.com&quot;,
+        &quot;Password&quot;: &quot;password2&quot;,
+        &quot;Avatar&quot;: &quot;avatar2.jpg&quot;,
+        &quot;Address&quot;: &quot;456 Oak Ave&quot;,
+        &quot;PhoneNumber&quot;: &quot;0987654321&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1990-07-20 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;2&quot;
+    },
+    {
+        &quot;UserId&quot;: 3,
+        &quot;FirstName&quot;: &quot;Michael&quot;,
+        &quot;LastName&quot;: &quot;Johnson&quot;,
+        &quot;Email&quot;: &quot;michael.johnson@example.com&quot;,
+        &quot;Password&quot;: &quot;password3&quot;,
+        &quot;Avatar&quot;: &quot;avatar3.jpg&quot;,
+        &quot;Address&quot;: &quot;789 Pine Rd&quot;,
+        &quot;PhoneNumber&quot;: &quot;1122334455&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1975-12-01 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;3&quot;
+    },
+    {
+        &quot;UserId&quot;: 4,
+        &quot;FirstName&quot;: &quot;Emily&quot;,
+        &quot;LastName&quot;: &quot;Davis&quot;,
+        &quot;Email&quot;: &quot;emily.davis@example.com&quot;,
+        &quot;Password&quot;: &quot;password4&quot;,
+        &quot;Avatar&quot;: &quot;avatar4.jpg&quot;,
+        &quot;Address&quot;: &quot;321 Maple St&quot;,
+        &quot;PhoneNumber&quot;: &quot;2233445566&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1988-09-30 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;4&quot;
+    },
+    {
+        &quot;UserId&quot;: 5,
+        &quot;FirstName&quot;: &quot;Chris&quot;,
+        &quot;LastName&quot;: &quot;Brown&quot;,
+        &quot;Email&quot;: &quot;chris.brown@example.com&quot;,
+        &quot;Password&quot;: &quot;password5&quot;,
+        &quot;Avatar&quot;: &quot;avatar5.jpg&quot;,
+        &quot;Address&quot;: &quot;654 Birch Ln&quot;,
+        &quot;PhoneNumber&quot;: &quot;3344556677&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1992-11-10 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Inactive&quot;,
+        &quot;RoleId&quot;: &quot;4&quot;,
+        &quot;CityId&quot;: &quot;5&quot;
+    },
+    {
+        &quot;UserId&quot;: 6,
+        &quot;FirstName&quot;: &quot;Ashley&quot;,
+        &quot;LastName&quot;: &quot;Wilson&quot;,
+        &quot;Email&quot;: &quot;ashley.wilson@example.com&quot;,
+        &quot;Password&quot;: &quot;password6&quot;,
+        &quot;Avatar&quot;: &quot;avatar6.jpg&quot;,
+        &quot;Address&quot;: &quot;987 Cedar Dr&quot;,
+        &quot;PhoneNumber&quot;: &quot;4455667788&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1993-08-22 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;6&quot;
+    },
+    {
+        &quot;UserId&quot;: 7,
+        &quot;FirstName&quot;: &quot;David&quot;,
+        &quot;LastName&quot;: &quot;Miller&quot;,
+        &quot;Email&quot;: &quot;david.miller@example.com&quot;,
+        &quot;Password&quot;: &quot;password7&quot;,
+        &quot;Avatar&quot;: &quot;avatar7.jpg&quot;,
+        &quot;Address&quot;: &quot;123 Spruce Ct&quot;,
+        &quot;PhoneNumber&quot;: &quot;5566778899&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1981-02-14 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;1&quot;,
+        &quot;CityId&quot;: &quot;7&quot;
+    },
+    {
+        &quot;UserId&quot;: 8,
+        &quot;FirstName&quot;: &quot;Jessica&quot;,
+        &quot;LastName&quot;: &quot;Martinez&quot;,
+        &quot;Email&quot;: &quot;jessica.martinez@example.com&quot;,
+        &quot;Password&quot;: &quot;password8&quot;,
+        &quot;Avatar&quot;: &quot;avatar8.jpg&quot;,
+        &quot;Address&quot;: &quot;456 Elm Pl&quot;,
+        &quot;PhoneNumber&quot;: &quot;6677889900&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1987-03-25 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Inactive&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;8&quot;
+    },
+    {
+        &quot;UserId&quot;: 9,
+        &quot;FirstName&quot;: &quot;Daniel&quot;,
+        &quot;LastName&quot;: &quot;Garcia&quot;,
+        &quot;Email&quot;: &quot;daniel.garcia@example.com&quot;,
+        &quot;Password&quot;: &quot;password9&quot;,
+        &quot;Avatar&quot;: &quot;avatar9.jpg&quot;,
+        &quot;Address&quot;: &quot;789 Fir St&quot;,
+        &quot;PhoneNumber&quot;: &quot;7788990011&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1995-10-12 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;4&quot;,
+        &quot;CityId&quot;: &quot;9&quot;
+    },
+    {
+        &quot;UserId&quot;: 10,
+        &quot;FirstName&quot;: &quot;Laura&quot;,
+        &quot;LastName&quot;: &quot;Taylor&quot;,
+        &quot;Email&quot;: &quot;laura.taylor@example.com&quot;,
+        &quot;Password&quot;: &quot;password10&quot;,
+        &quot;Avatar&quot;: &quot;avatar10.jpg&quot;,
+        &quot;Address&quot;: &quot;321 Oak Blvd&quot;,
+        &quot;PhoneNumber&quot;: &quot;8899001122&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1980-01-05 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;10&quot;
+    },
+    {
+        &quot;UserId&quot;: 11,
+        &quot;FirstName&quot;: &quot;Kevin&quot;,
+        &quot;LastName&quot;: &quot;Anderson&quot;,
+        &quot;Email&quot;: &quot;kevin.anderson@example.com&quot;,
+        &quot;Password&quot;: &quot;password11&quot;,
+        &quot;Avatar&quot;: &quot;avatar11.jpg&quot;,
+        &quot;Address&quot;: &quot;1111 King St&quot;,
+        &quot;PhoneNumber&quot;: &quot;1231231234&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1982-02-15 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;11&quot;
+    },
+    {
+        &quot;UserId&quot;: 12,
+        &quot;FirstName&quot;: &quot;Sarah&quot;,
+        &quot;LastName&quot;: &quot;Clark&quot;,
+        &quot;Email&quot;: &quot;sarah.clark@example.com&quot;,
+        &quot;Password&quot;: &quot;password12&quot;,
+        &quot;Avatar&quot;: &quot;avatar12.jpg&quot;,
+        &quot;Address&quot;: &quot;2222 Queen Ave&quot;,
+        &quot;PhoneNumber&quot;: &quot;2342342345&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1994-03-18 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;12&quot;
+    },
+    {
+        &quot;UserId&quot;: 13,
+        &quot;FirstName&quot;: &quot;Robert&quot;,
+        &quot;LastName&quot;: &quot;Lewis&quot;,
+        &quot;Email&quot;: &quot;robert.lewis@example.com&quot;,
+        &quot;Password&quot;: &quot;password13&quot;,
+        &quot;Avatar&quot;: &quot;avatar13.jpg&quot;,
+        &quot;Address&quot;: &quot;3333 Prince Rd&quot;,
+        &quot;PhoneNumber&quot;: &quot;3453453456&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1989-04-20 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;1&quot;,
+        &quot;CityId&quot;: &quot;13&quot;
+    },
+    {
+        &quot;UserId&quot;: 14,
+        &quot;FirstName&quot;: &quot;Emily&quot;,
+        &quot;LastName&quot;: &quot;Walker&quot;,
+        &quot;Email&quot;: &quot;emily.walker@example.com&quot;,
+        &quot;Password&quot;: &quot;password14&quot;,
+        &quot;Avatar&quot;: &quot;avatar14.jpg&quot;,
+        &quot;Address&quot;: &quot;4444 Duke St&quot;,
+        &quot;PhoneNumber&quot;: &quot;4564564567&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1996-05-22 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Inactive&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;14&quot;
+    },
+    {
+        &quot;UserId&quot;: 15,
+        &quot;FirstName&quot;: &quot;James&quot;,
+        &quot;LastName&quot;: &quot;Hall&quot;,
+        &quot;Email&quot;: &quot;james.hall@example.com&quot;,
+        &quot;Password&quot;: &quot;password15&quot;,
+        &quot;Avatar&quot;: &quot;avatar15.jpg&quot;,
+        &quot;Address&quot;: &quot;5555 Duchess Ave&quot;,
+        &quot;PhoneNumber&quot;: &quot;5675675678&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1983-06-25 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;15&quot;
+    },
+    {
+        &quot;UserId&quot;: 16,
+        &quot;FirstName&quot;: &quot;Olivia&quot;,
+        &quot;LastName&quot;: &quot;Young&quot;,
+        &quot;Email&quot;: &quot;olivia.young@example.com&quot;,
+        &quot;Password&quot;: &quot;password16&quot;,
+        &quot;Avatar&quot;: &quot;avatar16.jpg&quot;,
+        &quot;Address&quot;: &quot;6666 Earl Ct&quot;,
+        &quot;PhoneNumber&quot;: &quot;6786786789&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1988-07-28 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;4&quot;,
+        &quot;CityId&quot;: &quot;16&quot;
+    },
+    {
+        &quot;UserId&quot;: 17,
+        &quot;FirstName&quot;: &quot;William&quot;,
+        &quot;LastName&quot;: &quot;King&quot;,
+        &quot;Email&quot;: &quot;william.king@example.com&quot;,
+        &quot;Password&quot;: &quot;password17&quot;,
+        &quot;Avatar&quot;: &quot;avatar17.jpg&quot;,
+        &quot;Address&quot;: &quot;7777 Count Pl&quot;,
+        &quot;PhoneNumber&quot;: &quot;7897897890&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1987-08-30 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Inactive&quot;,
+        &quot;RoleId&quot;: &quot;2&quot;,
+        &quot;CityId&quot;: &quot;17&quot;
+    },
+    {
+        &quot;UserId&quot;: 18,
+        &quot;FirstName&quot;: &quot;Ava&quot;,
+        &quot;LastName&quot;: &quot;Scott&quot;,
+        &quot;Email&quot;: &quot;ava.scott@example.com&quot;,
+        &quot;Password&quot;: &quot;password18&quot;,
+        &quot;Avatar&quot;: &quot;avatar18.jpg&quot;,
+        &quot;Address&quot;: &quot;8888 Baron Dr&quot;,
+        &quot;PhoneNumber&quot;: &quot;8908908901&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1991-09-02 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;1&quot;,
+        &quot;CityId&quot;: &quot;18&quot;
+    },
+    {
+        &quot;UserId&quot;: 19,
+        &quot;FirstName&quot;: &quot;Henry&quot;,
+        &quot;LastName&quot;: &quot;Green&quot;,
+        &quot;Email&quot;: &quot;henry.green@example.com&quot;,
+        &quot;Password&quot;: &quot;password19&quot;,
+        &quot;Avatar&quot;: &quot;avatar19.jpg&quot;,
+        &quot;Address&quot;: &quot;9999 Viscount St&quot;,
+        &quot;PhoneNumber&quot;: &quot;9019019012&quot;,
+        &quot;Gender&quot;: &quot;M&quot;,
+        &quot;DoB&quot;: &quot;1985-10-05 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;4&quot;,
+        &quot;CityId&quot;: &quot;19&quot;
+    },
+    {
+        &quot;UserId&quot;: 20,
+        &quot;FirstName&quot;: &quot;Sophia&quot;,
+        &quot;LastName&quot;: &quot;Adams&quot;,
+        &quot;Email&quot;: &quot;sophia.adams@example.com&quot;,
+        &quot;Password&quot;: &quot;password20&quot;,
+        &quot;Avatar&quot;: &quot;avatar20.jpg&quot;,
+        &quot;Address&quot;: &quot;1010 Marquis Ln&quot;,
+        &quot;PhoneNumber&quot;: &quot;0120120123&quot;,
+        &quot;Gender&quot;: &quot;F&quot;,
+        &quot;DoB&quot;: &quot;1990-11-08 00:00:00.000&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;RoleId&quot;: &quot;3&quot;,
+        &quot;CityId&quot;: &quot;20&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users" data-method="GET"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users"
+                    onclick="tryItOut('GETapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users"
+                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-users--UserId-">GET api/users/{UserId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-users--UserId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/users/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users--UserId-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;UserId&quot;: 1,
+    &quot;FirstName&quot;: &quot;John&quot;,
+    &quot;LastName&quot;: &quot;Doe&quot;,
+    &quot;Email&quot;: &quot;john.doe@example.com&quot;,
+    &quot;Password&quot;: &quot;password1&quot;,
+    &quot;Avatar&quot;: &quot;avatar1.jpg&quot;,
+    &quot;Address&quot;: &quot;123 Main St&quot;,
+    &quot;PhoneNumber&quot;: &quot;1234567890&quot;,
+    &quot;Gender&quot;: &quot;M&quot;,
+    &quot;DoB&quot;: &quot;1985-05-15 00:00:00.000&quot;,
+    &quot;Status&quot;: &quot;Active&quot;,
+    &quot;RoleId&quot;: &quot;1&quot;,
+    &quot;CityId&quot;: &quot;1&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users--UserId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--UserId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--UserId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users--UserId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--UserId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users--UserId-" data-method="GET"
+      data-path="api/users/{UserId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--UserId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--UserId-"
+                    onclick="tryItOut('GETapi-users--UserId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--UserId-"
+                    onclick="cancelTryOut('GETapi-users--UserId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--UserId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{UserId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>UserId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="UserId"                data-endpoint="GETapi-users--UserId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-users">POST api/users</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"FirstName\": \"oainiuuovrdwztvpje\",
+    \"LastName\": \"dghvnzhcq\",
+    \"Email\": \"paucek.lura@example.net\",
+    \"Password\": \"uX`pBR|]\\\"A]8p\",
+    \"Avatar\": \"ytrjpqtgaugauom\",
+    \"Address\": \"nkw\",
+    \"PhoneNumber\": \"gtfebzkxjm\",
+    \"Gender\": \"O\",
+    \"DoB\": \"2007-09-03\",
+    \"Status\": \"Active\",
+    \"RoleId\": 5,
+    \"CityId\": 15
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "FirstName": "oainiuuovrdwztvpje",
+    "LastName": "dghvnzhcq",
+    "Email": "paucek.lura@example.net",
+    "Password": "uX`pBR|]\"A]8p",
+    "Avatar": "ytrjpqtgaugauom",
+    "Address": "nkw",
+    "PhoneNumber": "gtfebzkxjm",
+    "Gender": "O",
+    "DoB": "2007-09-03",
+    "Status": "Active",
+    "RoleId": 5,
+    "CityId": 15
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users">
+</span>
+<span id="execution-results-POSTapi-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users" data-method="POST"
+      data-path="api/users"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users"
+                    onclick="tryItOut('POSTapi-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users"
+                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>FirstName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="FirstName"                data-endpoint="POSTapi-users"
+               value="oainiuuovrdwztvpje"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>oainiuuovrdwztvpje</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>LastName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="LastName"                data-endpoint="POSTapi-users"
+               value="dghvnzhcq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>dghvnzhcq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Email"                data-endpoint="POSTapi-users"
+               value="paucek.lura@example.net"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 50 characters. Example: <code>paucek.lura@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Password"                data-endpoint="POSTapi-users"
+               value="uX`pBR|]"A]8p"
+               data-component="body">
+    <br>
+<p>Must be at least 6 characters. Must not be greater than 12 characters. Example: <code>uX</code>pBR|]&quot;A]8p`</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Avatar</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Avatar"                data-endpoint="POSTapi-users"
+               value="ytrjpqtgaugauom"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>ytrjpqtgaugauom</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Address"                data-endpoint="POSTapi-users"
+               value="nkw"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>nkw</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PhoneNumber</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="PhoneNumber"                data-endpoint="POSTapi-users"
+               value="gtfebzkxjm"
+               data-component="body">
+    <br>
+<p>Must be 10 characters. Example: <code>gtfebzkxjm</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Gender</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Gender"                data-endpoint="POSTapi-users"
+               value="O"
+               data-component="body">
+    <br>
+<p>Example: <code>O</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>M</code></li> <li><code>F</code></li> <li><code>O</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>DoB</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="DoB"                data-endpoint="POSTapi-users"
+               value="2007-09-03"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2007-09-03</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Status"                data-endpoint="POSTapi-users"
+               value="Active"
+               data-component="body">
+    <br>
+<p>Example: <code>Active</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Active</code></li> <li><code>Inactive</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>RoleId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="RoleId"                data-endpoint="POSTapi-users"
+               value="5"
+               data-component="body">
+    <br>
+<p>Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>CityId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="CityId"                data-endpoint="POSTapi-users"
+               value="15"
+               data-component="body">
+    <br>
+<p>Example: <code>15</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-users--UserId-">PUT api/users/{UserId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-users--UserId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/users/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"FirstName\": \"mvlzlgucvfphvlkw\",
+    \"LastName\": \"apkufcf\",
+    \"Email\": \"ondricka.gust@example.net\",
+    \"Password\": \"e0oo-4\",
+    \"Avatar\": \"xhvkfkhuwpzrncwjs\",
+    \"Address\": \"zofmjazlvxhjnebkztaslvilv\",
+    \"PhoneNumber\": \"smyafyrbpz\",
+    \"Gender\": \"M\",
+    \"DoB\": \"2017-04-28\",
+    \"Status\": \"Inactive\",
+    \"RoleId\": 2,
+    \"CityId\": 5
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "FirstName": "mvlzlgucvfphvlkw",
+    "LastName": "apkufcf",
+    "Email": "ondricka.gust@example.net",
+    "Password": "e0oo-4",
+    "Avatar": "xhvkfkhuwpzrncwjs",
+    "Address": "zofmjazlvxhjnebkztaslvilv",
+    "PhoneNumber": "smyafyrbpz",
+    "Gender": "M",
+    "DoB": "2017-04-28",
+    "Status": "Inactive",
+    "RoleId": 2,
+    "CityId": 5
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-users--UserId-">
+</span>
+<span id="execution-results-PUTapi-users--UserId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-users--UserId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-users--UserId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-users--UserId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-users--UserId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-users--UserId-" data-method="PUT"
+      data-path="api/users/{UserId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-users--UserId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-users--UserId-"
+                    onclick="tryItOut('PUTapi-users--UserId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-users--UserId-"
+                    onclick="cancelTryOut('PUTapi-users--UserId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-users--UserId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/users/{UserId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>UserId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="UserId"                data-endpoint="PUTapi-users--UserId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>FirstName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="FirstName"                data-endpoint="PUTapi-users--UserId-"
+               value="mvlzlgucvfphvlkw"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>mvlzlgucvfphvlkw</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>LastName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="LastName"                data-endpoint="PUTapi-users--UserId-"
+               value="apkufcf"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>apkufcf</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Email"                data-endpoint="PUTapi-users--UserId-"
+               value="ondricka.gust@example.net"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 50 characters. Example: <code>ondricka.gust@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Password"                data-endpoint="PUTapi-users--UserId-"
+               value="e0oo-4"
+               data-component="body">
+    <br>
+<p>Must be at least 6 characters. Must not be greater than 12 characters. Example: <code>e0oo-4</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Avatar</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Avatar"                data-endpoint="PUTapi-users--UserId-"
+               value="xhvkfkhuwpzrncwjs"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>xhvkfkhuwpzrncwjs</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Address"                data-endpoint="PUTapi-users--UserId-"
+               value="zofmjazlvxhjnebkztaslvilv"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>zofmjazlvxhjnebkztaslvilv</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>PhoneNumber</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="PhoneNumber"                data-endpoint="PUTapi-users--UserId-"
+               value="smyafyrbpz"
+               data-component="body">
+    <br>
+<p>Must be 10 characters. Example: <code>smyafyrbpz</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Gender</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Gender"                data-endpoint="PUTapi-users--UserId-"
+               value="M"
+               data-component="body">
+    <br>
+<p>Example: <code>M</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>M</code></li> <li><code>F</code></li> <li><code>O</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>DoB</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="DoB"                data-endpoint="PUTapi-users--UserId-"
+               value="2017-04-28"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2017-04-28</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>Status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="Status"                data-endpoint="PUTapi-users--UserId-"
+               value="Inactive"
+               data-component="body">
+    <br>
+<p>Example: <code>Inactive</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>Active</code></li> <li><code>Inactive</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>RoleId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="RoleId"                data-endpoint="PUTapi-users--UserId-"
+               value="2"
+               data-component="body">
+    <br>
+<p>Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>CityId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="CityId"                data-endpoint="PUTapi-users--UserId-"
+               value="5"
+               data-component="body">
+    <br>
+<p>Example: <code>5</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-users--UserId-">DELETE api/users/{UserId}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-users--UserId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/users/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-users--UserId-">
+</span>
+<span id="execution-results-DELETEapi-users--UserId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-users--UserId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-users--UserId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-users--UserId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-users--UserId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-users--UserId-" data-method="DELETE"
+      data-path="api/users/{UserId}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users--UserId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-users--UserId-"
+                    onclick="tryItOut('DELETEapi-users--UserId-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-users--UserId-"
+                    onclick="cancelTryOut('DELETEapi-users--UserId-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-users--UserId-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/users/{UserId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-users--UserId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>UserId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="UserId"                data-endpoint="DELETEapi-users--UserId-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Example: <code>1</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,480 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "789b6c65-75d7-406e-8723-e8fccb730d6b",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/contracts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contracts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contracts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"ContractId\":1,\"ContractName\":null,\"CreatedAt\":\"2024-01-01 00:00:00.000\",\"StartDate\":\"2024-01-05 00:00:00.000\",\"FinishDate\":\"2024-01-10 00:00:00.000\",\"Cost\":\"5000.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract1.pdf\",\"SupervisorId\":\"3\",\"RegistrationId\":\"1\"},{\"ContractId\":2,\"ContractName\":null,\"CreatedAt\":\"2024-02-01 00:00:00.000\",\"StartDate\":\"2024-02-10 00:00:00.000\",\"FinishDate\":\"2024-02-15 00:00:00.000\",\"Cost\":\"2000.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract2.pdf\",\"SupervisorId\":\"1\",\"RegistrationId\":\"2\"},{\"ContractId\":3,\"ContractName\":null,\"CreatedAt\":\"2024-03-01 00:00:00.000\",\"StartDate\":\"2024-03-05 00:00:00.000\",\"FinishDate\":\"2024-03-12 00:00:00.000\",\"Cost\":\"3000.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":null,\"File\":\"contract3.pdf\",\"SupervisorId\":\"6\",\"RegistrationId\":\"3\"},{\"ContractId\":4,\"ContractName\":null,\"CreatedAt\":\"2024-04-01 00:00:00.000\",\"StartDate\":\"2024-04-10 00:00:00.000\",\"FinishDate\":\"2024-04-20 00:00:00.000\",\"Cost\":\"4000.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract4.pdf\",\"SupervisorId\":\"7\",\"RegistrationId\":\"4\"},{\"ContractId\":5,\"ContractName\":null,\"CreatedAt\":\"2024-05-01 00:00:00.000\",\"StartDate\":\"2024-05-10 00:00:00.000\",\"FinishDate\":\"2024-05-15 00:00:00.000\",\"Cost\":\"3500.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract5.pdf\",\"SupervisorId\":\"5\",\"RegistrationId\":\"5\"},{\"ContractId\":6,\"ContractName\":null,\"CreatedAt\":\"2024-06-01 00:00:00.000\",\"StartDate\":\"2024-06-05 00:00:00.000\",\"FinishDate\":\"2024-06-10 00:00:00.000\",\"Cost\":\"4500.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract6.pdf\",\"SupervisorId\":\"1\",\"RegistrationId\":\"6\"},{\"ContractId\":7,\"ContractName\":null,\"CreatedAt\":\"2024-07-01 00:00:00.000\",\"StartDate\":\"2024-07-05 00:00:00.000\",\"FinishDate\":\"2024-07-12 00:00:00.000\",\"Cost\":\"2500.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":null,\"File\":\"contract7.pdf\",\"SupervisorId\":\"3\",\"RegistrationId\":\"7\"},{\"ContractId\":8,\"ContractName\":null,\"CreatedAt\":\"2024-08-01 00:00:00.000\",\"StartDate\":\"2024-08-05 00:00:00.000\",\"FinishDate\":\"2024-08-12 00:00:00.000\",\"Cost\":\"3200.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract8.pdf\",\"SupervisorId\":\"6\",\"RegistrationId\":\"8\"},{\"ContractId\":9,\"ContractName\":null,\"CreatedAt\":\"2024-09-01 00:00:00.000\",\"StartDate\":\"2024-09-05 00:00:00.000\",\"FinishDate\":\"2024-09-10 00:00:00.000\",\"Cost\":\"3700.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract9.pdf\",\"SupervisorId\":\"7\",\"RegistrationId\":\"9\"},{\"ContractId\":10,\"ContractName\":null,\"CreatedAt\":\"2024-10-01 00:00:00.000\",\"StartDate\":\"2024-10-05 00:00:00.000\",\"FinishDate\":\"2024-10-10 00:00:00.000\",\"Cost\":\"4200.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract10.pdf\",\"SupervisorId\":\"5\",\"RegistrationId\":\"10\"},{\"ContractId\":11,\"ContractName\":null,\"CreatedAt\":\"2024-01-02 00:00:00.000\",\"StartDate\":\"2024-01-06 00:00:00.000\",\"FinishDate\":\"2024-01-12 00:00:00.000\",\"Cost\":\"5100.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract11.pdf\",\"SupervisorId\":\"11\",\"RegistrationId\":\"11\"},{\"ContractId\":12,\"ContractName\":null,\"CreatedAt\":\"2024-02-03 00:00:00.000\",\"StartDate\":\"2024-02-11 00:00:00.000\",\"FinishDate\":\"2024-02-16 00:00:00.000\",\"Cost\":\"2200.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract12.pdf\",\"SupervisorId\":\"12\",\"RegistrationId\":\"12\"},{\"ContractId\":13,\"ContractName\":null,\"CreatedAt\":\"2024-03-04 00:00:00.000\",\"StartDate\":\"2024-03-07 00:00:00.000\",\"FinishDate\":\"2024-03-13 00:00:00.000\",\"Cost\":\"3400.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":null,\"File\":\"contract13.pdf\",\"SupervisorId\":\"13\",\"RegistrationId\":\"13\"},{\"ContractId\":14,\"ContractName\":null,\"CreatedAt\":\"2024-04-05 00:00:00.000\",\"StartDate\":\"2024-04-11 00:00:00.000\",\"FinishDate\":\"2024-04-21 00:00:00.000\",\"Cost\":\"4200.00\",\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"Completed\",\"File\":\"contract14.pdf\",\"SupervisorId\":\"14\",\"RegistrationId\":\"14\"},{\"ContractId\":15,\"ContractName\":null,\"CreatedAt\":\"2024-05-06 00:00:00.000\",\"StartDate\":\"2024-05-12 00:00:00.000\",\"FinishDate\":\"2024-05-18 00:00:00.000\",\"Cost\":\"3600.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract15.pdf\",\"SupervisorId\":\"15\",\"RegistrationId\":\"15\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/contracts\/{ContractId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contracts\/:ContractId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contracts\/:ContractId",
+                            "variable": [
+                                {
+                                    "id": "ContractId",
+                                    "key": "ContractId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"ContractId\":1,\"ContractName\":null,\"CreatedAt\":\"2024-01-01 00:00:00.000\",\"StartDate\":\"2024-01-05 00:00:00.000\",\"FinishDate\":\"2024-01-10 00:00:00.000\",\"Cost\":\"5000.00\",\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"contract1.pdf\",\"SupervisorId\":\"3\",\"RegistrationId\":\"1\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/contracts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contracts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contracts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ContractName\":\"wupqhwqndsktigc\",\"CreatedAt\":\"2024-08-08T04:28:21\",\"StartDate\":\"2024-08-08T04:28:21\",\"FinishDate\":\"2024-08-08T04:28:21\",\"Cost\":34439.22,\"PaymentMethod\":\"Cash\",\"PaymentStatus\":\"30% Prepayment\",\"File\":\"reiciendis\",\"SupervisorId\":\"eveniet\",\"RegistrationId\":\"ea\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/contracts\/{ContractId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contracts\/:ContractId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contracts\/:ContractId",
+                            "variable": [
+                                {
+                                    "id": "ContractId",
+                                    "key": "ContractId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ContractName\":\"z\",\"CreatedAt\":\"2024-08-08T04:28:21\",\"StartDate\":\"2024-08-08T04:28:21\",\"FinishDate\":\"2024-08-08T04:28:21\",\"Cost\":4.4262,\"PaymentMethod\":\"Online\",\"PaymentStatus\":\"Completed\",\"File\":\"iusto\",\"SupervisorId\":\"placeat\",\"RegistrationId\":\"est\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/contracts\/{ContractId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contracts\/:ContractId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contracts\/:ContractId",
+                            "variable": [
+                                {
+                                    "id": "ContractId",
+                                    "key": "ContractId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"UserId\":1,\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"john.doe@example.com\",\"Password\":\"password1\",\"Avatar\":\"avatar1.jpg\",\"Address\":\"123 Main St\",\"PhoneNumber\":\"1234567890\",\"Gender\":\"M\",\"DoB\":\"1985-05-15 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"1\",\"CityId\":\"1\"},{\"UserId\":2,\"FirstName\":\"Jane\",\"LastName\":\"Smith\",\"Email\":\"jane.smith@example.com\",\"Password\":\"password2\",\"Avatar\":\"avatar2.jpg\",\"Address\":\"456 Oak Ave\",\"PhoneNumber\":\"0987654321\",\"Gender\":\"F\",\"DoB\":\"1990-07-20 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"2\",\"CityId\":\"2\"},{\"UserId\":3,\"FirstName\":\"Michael\",\"LastName\":\"Johnson\",\"Email\":\"michael.johnson@example.com\",\"Password\":\"password3\",\"Avatar\":\"avatar3.jpg\",\"Address\":\"789 Pine Rd\",\"PhoneNumber\":\"1122334455\",\"Gender\":\"M\",\"DoB\":\"1975-12-01 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"3\"},{\"UserId\":4,\"FirstName\":\"Emily\",\"LastName\":\"Davis\",\"Email\":\"emily.davis@example.com\",\"Password\":\"password4\",\"Avatar\":\"avatar4.jpg\",\"Address\":\"321 Maple St\",\"PhoneNumber\":\"2233445566\",\"Gender\":\"F\",\"DoB\":\"1988-09-30 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"2\",\"CityId\":\"4\"},{\"UserId\":5,\"FirstName\":\"Chris\",\"LastName\":\"Brown\",\"Email\":\"chris.brown@example.com\",\"Password\":\"password5\",\"Avatar\":\"avatar5.jpg\",\"Address\":\"654 Birch Ln\",\"PhoneNumber\":\"3344556677\",\"Gender\":\"M\",\"DoB\":\"1992-11-10 00:00:00.000\",\"Status\":\"Inactive\",\"RoleId\":\"4\",\"CityId\":\"5\"},{\"UserId\":6,\"FirstName\":\"Ashley\",\"LastName\":\"Wilson\",\"Email\":\"ashley.wilson@example.com\",\"Password\":\"password6\",\"Avatar\":\"avatar6.jpg\",\"Address\":\"987 Cedar Dr\",\"PhoneNumber\":\"4455667788\",\"Gender\":\"F\",\"DoB\":\"1993-08-22 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"6\"},{\"UserId\":7,\"FirstName\":\"David\",\"LastName\":\"Miller\",\"Email\":\"david.miller@example.com\",\"Password\":\"password7\",\"Avatar\":\"avatar7.jpg\",\"Address\":\"123 Spruce Ct\",\"PhoneNumber\":\"5566778899\",\"Gender\":\"M\",\"DoB\":\"1981-02-14 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"1\",\"CityId\":\"7\"},{\"UserId\":8,\"FirstName\":\"Jessica\",\"LastName\":\"Martinez\",\"Email\":\"jessica.martinez@example.com\",\"Password\":\"password8\",\"Avatar\":\"avatar8.jpg\",\"Address\":\"456 Elm Pl\",\"PhoneNumber\":\"6677889900\",\"Gender\":\"F\",\"DoB\":\"1987-03-25 00:00:00.000\",\"Status\":\"Inactive\",\"RoleId\":\"2\",\"CityId\":\"8\"},{\"UserId\":9,\"FirstName\":\"Daniel\",\"LastName\":\"Garcia\",\"Email\":\"daniel.garcia@example.com\",\"Password\":\"password9\",\"Avatar\":\"avatar9.jpg\",\"Address\":\"789 Fir St\",\"PhoneNumber\":\"7788990011\",\"Gender\":\"M\",\"DoB\":\"1995-10-12 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"4\",\"CityId\":\"9\"},{\"UserId\":10,\"FirstName\":\"Laura\",\"LastName\":\"Taylor\",\"Email\":\"laura.taylor@example.com\",\"Password\":\"password10\",\"Avatar\":\"avatar10.jpg\",\"Address\":\"321 Oak Blvd\",\"PhoneNumber\":\"8899001122\",\"Gender\":\"F\",\"DoB\":\"1980-01-05 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"10\"},{\"UserId\":11,\"FirstName\":\"Kevin\",\"LastName\":\"Anderson\",\"Email\":\"kevin.anderson@example.com\",\"Password\":\"password11\",\"Avatar\":\"avatar11.jpg\",\"Address\":\"1111 King St\",\"PhoneNumber\":\"1231231234\",\"Gender\":\"M\",\"DoB\":\"1982-02-15 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"2\",\"CityId\":\"11\"},{\"UserId\":12,\"FirstName\":\"Sarah\",\"LastName\":\"Clark\",\"Email\":\"sarah.clark@example.com\",\"Password\":\"password12\",\"Avatar\":\"avatar12.jpg\",\"Address\":\"2222 Queen Ave\",\"PhoneNumber\":\"2342342345\",\"Gender\":\"F\",\"DoB\":\"1994-03-18 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"12\"},{\"UserId\":13,\"FirstName\":\"Robert\",\"LastName\":\"Lewis\",\"Email\":\"robert.lewis@example.com\",\"Password\":\"password13\",\"Avatar\":\"avatar13.jpg\",\"Address\":\"3333 Prince Rd\",\"PhoneNumber\":\"3453453456\",\"Gender\":\"M\",\"DoB\":\"1989-04-20 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"1\",\"CityId\":\"13\"},{\"UserId\":14,\"FirstName\":\"Emily\",\"LastName\":\"Walker\",\"Email\":\"emily.walker@example.com\",\"Password\":\"password14\",\"Avatar\":\"avatar14.jpg\",\"Address\":\"4444 Duke St\",\"PhoneNumber\":\"4564564567\",\"Gender\":\"F\",\"DoB\":\"1996-05-22 00:00:00.000\",\"Status\":\"Inactive\",\"RoleId\":\"2\",\"CityId\":\"14\"},{\"UserId\":15,\"FirstName\":\"James\",\"LastName\":\"Hall\",\"Email\":\"james.hall@example.com\",\"Password\":\"password15\",\"Avatar\":\"avatar15.jpg\",\"Address\":\"5555 Duchess Ave\",\"PhoneNumber\":\"5675675678\",\"Gender\":\"M\",\"DoB\":\"1983-06-25 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"15\"},{\"UserId\":16,\"FirstName\":\"Olivia\",\"LastName\":\"Young\",\"Email\":\"olivia.young@example.com\",\"Password\":\"password16\",\"Avatar\":\"avatar16.jpg\",\"Address\":\"6666 Earl Ct\",\"PhoneNumber\":\"6786786789\",\"Gender\":\"F\",\"DoB\":\"1988-07-28 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"4\",\"CityId\":\"16\"},{\"UserId\":17,\"FirstName\":\"William\",\"LastName\":\"King\",\"Email\":\"william.king@example.com\",\"Password\":\"password17\",\"Avatar\":\"avatar17.jpg\",\"Address\":\"7777 Count Pl\",\"PhoneNumber\":\"7897897890\",\"Gender\":\"M\",\"DoB\":\"1987-08-30 00:00:00.000\",\"Status\":\"Inactive\",\"RoleId\":\"2\",\"CityId\":\"17\"},{\"UserId\":18,\"FirstName\":\"Ava\",\"LastName\":\"Scott\",\"Email\":\"ava.scott@example.com\",\"Password\":\"password18\",\"Avatar\":\"avatar18.jpg\",\"Address\":\"8888 Baron Dr\",\"PhoneNumber\":\"8908908901\",\"Gender\":\"F\",\"DoB\":\"1991-09-02 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"1\",\"CityId\":\"18\"},{\"UserId\":19,\"FirstName\":\"Henry\",\"LastName\":\"Green\",\"Email\":\"henry.green@example.com\",\"Password\":\"password19\",\"Avatar\":\"avatar19.jpg\",\"Address\":\"9999 Viscount St\",\"PhoneNumber\":\"9019019012\",\"Gender\":\"M\",\"DoB\":\"1985-10-05 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"4\",\"CityId\":\"19\"},{\"UserId\":20,\"FirstName\":\"Sophia\",\"LastName\":\"Adams\",\"Email\":\"sophia.adams@example.com\",\"Password\":\"password20\",\"Avatar\":\"avatar20.jpg\",\"Address\":\"1010 Marquis Ln\",\"PhoneNumber\":\"0120120123\",\"Gender\":\"F\",\"DoB\":\"1990-11-08 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"3\",\"CityId\":\"20\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/users\/{UserId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:UserId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:UserId",
+                            "variable": [
+                                {
+                                    "id": "UserId",
+                                    "key": "UserId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"UserId\":1,\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"john.doe@example.com\",\"Password\":\"password1\",\"Avatar\":\"avatar1.jpg\",\"Address\":\"123 Main St\",\"PhoneNumber\":\"1234567890\",\"Gender\":\"M\",\"DoB\":\"1985-05-15 00:00:00.000\",\"Status\":\"Active\",\"RoleId\":\"1\",\"CityId\":\"1\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"FirstName\":\"oainiuuovrdwztvpje\",\"LastName\":\"dghvnzhcq\",\"Email\":\"paucek.lura@example.net\",\"Password\":\"uX`pBR|]\\\"A]8p\",\"Avatar\":\"ytrjpqtgaugauom\",\"Address\":\"nkw\",\"PhoneNumber\":\"gtfebzkxjm\",\"Gender\":\"O\",\"DoB\":\"2007-09-03\",\"Status\":\"Active\",\"RoleId\":5,\"CityId\":15}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/users\/{UserId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:UserId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:UserId",
+                            "variable": [
+                                {
+                                    "id": "UserId",
+                                    "key": "UserId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"FirstName\":\"mvlzlgucvfphvlkw\",\"LastName\":\"apkufcf\",\"Email\":\"ondricka.gust@example.net\",\"Password\":\"e0oo-4\",\"Avatar\":\"xhvkfkhuwpzrncwjs\",\"Address\":\"zofmjazlvxhjnebkztaslvilv\",\"PhoneNumber\":\"smyafyrbpz\",\"Gender\":\"M\",\"DoB\":\"2017-04-28\",\"Status\":\"Inactive\",\"RoleId\":2,\"CityId\":5}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/users\/{UserId}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:UserId",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:UserId",
+                            "variable": [
+                                {
+                                    "id": "UserId",
+                                    "key": "UserId",
+                                    "value": "1",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
