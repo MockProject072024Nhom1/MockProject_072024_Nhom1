@@ -1,17 +1,27 @@
-import Login from '../pages/client/Account/Login';
-import HomePage from '../pages/client/HomePage/HomePage';
+import Admin from "../pages/admin/Admin";
+import AddContract from "../pages/admin/contract/AddContract";
+import Login from "../pages/client/Account/Login";
+import HomePage from "../pages/client/HomePage/HomePage";
 
 export const routes = [
   {
-    path: '/',
+    path: "/",
     element: HomePage,
-    title: 'NSGSecure',
-    isShowHeader: true
+    title: "NSGSecure",
+    isShowHeader: true,
   },
   {
-    path: '/sign-in',
+    path: "/sign-in",
     element: Login,
-    title: 'Sign In',
-    isShowHeader: false
-  }
+    title: "Sign In",
+    isShowHeader: false,
+  },
+
+  {
+    path: "/admin/*",
+    element: Admin,
+    title: "Sign In",
+    isShowHeader: false,
+  },
+
 ];
