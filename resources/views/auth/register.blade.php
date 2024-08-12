@@ -18,12 +18,12 @@
             <h1 class="text-4xl font-normal text-[#7d8084] mb-4">Welcome to NSGSecure</h1>
             <h1 class="text-3xl font-normal text-gradient">Enter into a NEW World of Surveillance</h1>
         </div>
-        <form class="form-left bg-[#2F2E2E] p-10 m-20 w-[40%] h-3/4 flex flex-col justify-center rounded-md shadow-2xl"
+        <form class="form-left bg-[#2F2E2E] p-6 m-20 w-[40%] h-autu flex flex-col justify-center rounded-md shadow-2xl"
             action="{{ route('register') }}" method="POST">
             @csrf
             <h1 class="text-white text-[50px] text-center mb-4">{{ __('REGISTER') }}</h1>
             <div class="flex justify-between gap-4 mb-4">
-                <div class="w-1/2">
+                <div class="flex flex-col w-1/2">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-user "></i>
                         <label class="block mb-1 font-normal text-xl text-[#7d8084]"
@@ -34,12 +34,12 @@
                         type="text" name="first_name" id="first_name" placeholder="Enter your first name"
                         value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
                     @error('first_name')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-white font-thin" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                <div class="w-1/2">
+                <div class="flex flex-col w-1/2">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-user "></i>
                         <label class="block mb-1 font-normal text-xl text-[#7d8084]"
@@ -50,7 +50,7 @@
                         type="text" name="last_name" id="last_name" placeholder="Enter your last name"
                         value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
                     @error('last_name')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-white font-thin" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -61,13 +61,13 @@
                 <label class="block mb-1 font-normal text-xl text-[#7d8084]"
                     for="email">{{ __('Email Address') }}</label>
             </div>
-            <div class="flex items-start justify-between w-full mb-4">
+            <div class="flex flex-col items-start justify-between w-full mb-4">
                 <input
                     class="w-full px-3 py-2 bg-[#222121] border border-gray-300 outline-none text-base text-[#7d8084] font-normal rounded-md @error('email') is-invalid @enderror"
                     type="email" name="email" id="email" placeholder="Enter your email" value="{{ old('email') }}"
                     required autocomplete="email">
                 @error('email')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="text-white font-thin" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
@@ -76,7 +76,7 @@
                 <i class="fa-solid fa-lock"></i>
                 <label class="block mb-1 font-normal text-xl text-[#7d8084]" for="password">{{ __('Password') }}</label>
             </div>
-            <div class="flex items-start justify-between w-full mb-4 relative">
+            <div class="flex flex-col items-start justify-between w-full mb-4 relative">
                 <span class="toggle-password cursor-pointer">
                     <i class="fa-regular fa-eye-slash text-white absolute top-3 right-3 bottom-0"></i>
                 </span>
@@ -85,7 +85,7 @@
                     type="password" name="password" id="password" placeholder="Enter your password" required
                     autocomplete="new-password">
                 @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="text-white font-thin" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
@@ -96,7 +96,7 @@
                     for="password-confirm">{{ __('Confirm Password') }}</label>
             </div>
             <div class="flex items-start justify-between w-full mb-4 relative">
-                <span class="toggle-password cursor-pointer">
+                <span class="toggle-password-confirm cursor-pointer">
                     <i class="fa-regular fa-eye-slash text-white absolute top-3 right-3 bottom-0"></i>
                 </span>
                 <input
@@ -128,8 +128,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const togglePassword = document.querySelector('.toggle-password');
+            const togglePasswordConfirm = document.querySelector('.toggle-password-confirm');
             const passwordField = document.getElementById('password');
+            const passwordConfirmField = document.getElementById('password-confirm');
             const eyeIcon = togglePassword.querySelector('i');
+            const eyeIconPasswordConfirm = togglePasswordConfirm.querySelector('i');
 
             togglePassword.addEventListener('click', function () {
                 const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -142,6 +145,20 @@
                 } else {
                     eyeIcon.classList.remove('fa-eye');
                     eyeIcon.classList.add('fa-eye-slash');
+                }
+            });
+
+            togglePasswordConfirm.addEventListener('click', function () {
+                const type = passwordConfirmField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordConfirmField.setAttribute('type', type);
+
+                // Toggle icon class
+                if (type === 'password') {
+                    eyeIconPasswordConfirm.classList.remove('fa-eye-slash');
+                    eyeIconPasswordConfirm.classList.add('fa-eye');
+                } else {
+                    eyeIconPasswordConfirm.classList.remove('fa-eye');
+                    eyeIconPasswordConfirm.classList.add('fa-eye-slash');
                 }
             });
         });

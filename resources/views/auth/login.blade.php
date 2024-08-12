@@ -13,7 +13,7 @@
 
 <body class="form-v6 h-screen flex justify-center items-center bg-[#2F2E2E]">
     <div class="bg-[#C8C8C8] w-full h-full rounded-lg font-nunito font-bold flex justify-center items-center">
-        <form class="form-left bg-[#2F2E2E] p-10 m-20 w-[40%] h-3/4 flex flex-col justify-center rounded-md shadow-2xl"
+        <form class="form-left bg-[#2F2E2E] p-10 m-20 w-[40%] h-auto flex flex-col justify-center rounded-md shadow-2xl"
             action="{{ route('login') }}" method="POST">
             @csrf
             <h1 class="text-white text-[50px] text-center mb-8">{{ __('LOGIN') }}</h1>
@@ -22,13 +22,13 @@
                 <label class="block mb-1 font-normal text-xl text-[#7d8084]"
                     for="email">{{ __('Email Address') }}</label>
             </div>
-            <div class="flex items-start justify-between w-full mb-8">
+            <div class="flex flex-col items-start justify-between w-full mb-8">
                 <input
                     class="w-full px-3 py-2 bg-[#222121] border border-gray-300 outline-none text-base text-[#7d8084] font-normal rounded-md @error('email') is-invalid @enderror"
                     type="text" name="email" id="email" placeholder="Enter your email" value="{{ old('email') }}"
                     required autocomplete="email" autofocus>
                 @error('email')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="text-white font-thin" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-lock"></i>
                 <label class="block mb-1 font-normal text-xl text-[#7d8084]" for="password">{{ __('Password') }}</label>
             </div>
-            <div class="flex items-start justify-between w-full mb-8 relative">
+            <div class="flex flex-col items-start justify-between w-full mb-8 relative">
                 <span class="toggle-password cursor-pointer">
                     <i class="fa-regular fa-eye-slash text-white absolute top-3 right-3 bottom-0"></i>
                 </span>
@@ -46,7 +46,7 @@
                     type="password" name="password" id="password" placeholder="Enter your password" required
                     autocomplete="current-password">
                 @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="text-white font-thin" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
