@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MockApplication<mock>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.viettridao.mock.MockApplication",
+            "projectName": "mock",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
