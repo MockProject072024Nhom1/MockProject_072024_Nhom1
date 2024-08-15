@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "@mui/material";
 
 const CustomerRegistrationManagement = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -44,7 +44,6 @@ const CustomerRegistrationManagement = () => {
     },
   ]);
 
-  //Delete selected row
   const handleDeleteConfirm = () => {
     const updatedRows = rows.filter((row) => !selectedRows.includes(row.id));
     setRows(updatedRows); 

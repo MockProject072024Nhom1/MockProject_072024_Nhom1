@@ -13,7 +13,6 @@ const messages = [
   { sender: "Administrator", text: "Absolutely!", timestamp: "23 Jan 2:03 pm" },
   { sender: "Administrator", text: "Absolutely!", timestamp: "23 Jan 2:03 pm" },
   { sender: "Administrator", text: "Absolutely!", timestamp: "23 Jan 2:03 pm" },
-  // Thêm nhiều tin nhắn hơn nếu cần thiết
 ];
 
 export default function Chat() {
@@ -27,14 +26,14 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex justify-center items-center h-12 bg-gray-100 pb-1 border-b-2 border-gray-300">
-        <span className="font-bold text-3xl">Customer Management</span>
+    <div className="flex flex-col h-fit mt-20 pt-0.5">
+      <div className="flex justify-center items-center h-12  bg-gray-100 border-b-4 border-gray-300">
+        <span className="font-bold text-3xl">Respond Customer Request</span>
       </div>
 
       <div className="flex flex-1 bg-gray-100">
         {/* Left Panel: User Messages */}
-        <div className="w-1/4 bg-white p-6 rounded-lg overflow-y-auto border-r-2 border-gray-300">
+        <div className="w-1/4 bg-white p-6 overflow-y-auto border-r-4 border-gray-300">
           {messages
             .filter((msg) => msg.sender === "Ming")
             .map((message, index) => (
@@ -51,12 +50,11 @@ export default function Chat() {
         </div>
 
         {/* Right Panel: Chat Area */}
-        <div className="flex flex-col flex-1 bg-white rounded-lg overflow-hidden ml-0 relative">
+        <div className="flex flex-col flex-1 bg-white overflow-hidden ml-0 relative">
           <h6 className="text-xl p-2 ml-2 font-semibold">Chat</h6>
           <div className="border-b-2 border-gray-300 w-full mb-2"></div>
           <div className="flex-1 overflow-hidden">
-            {/* Đặt chiều cao tối đa cho phần chứa tin nhắn */}
-            <div className="overflow-y-auto h-[calc(100vh-200px)] p-4"> {/* Chiều cao có thể thay đổi tùy chỉnh */}
+            <div className="overflow-y-auto h-[calc(91.5vh-178px)] p-4"> 
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -88,17 +86,17 @@ export default function Chat() {
               ))}
             </div>
           </div>
-          <div className="flex bg-gray-300 py-2 px-4"> {/* Ô nhập tin nhắn cố định ở dưới */}
+          <div className="flex bg-gray-300 py-2 px-4">
             <input
               type="text"
               placeholder="Type Message..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="flex-1 p-2 border border-gray-300 rounded-lg"
+              className="flex-1 p-2 border border-gray-300 "
             />
             <button
               onClick={handleSend}
-              className="ml-2 px-4 py-2 bg-blue-600 text-white rounded-lg"
+              className="px-4 py-2 bg-blue-600 text-white"
             >
               Send
             </button>

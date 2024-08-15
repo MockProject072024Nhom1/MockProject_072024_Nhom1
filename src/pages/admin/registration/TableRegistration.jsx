@@ -51,7 +51,7 @@ export default function TableRegistration({
   const handleRowSelection = (newSelection) => {
     const selectedIds = newSelection;
     setSelectedRows(selectedIds);
-    console.log(`Selected IDs: ${selectedIds}`);
+    console.log(`Selected IDs: ${selectedIds}`); 
   };
 
   const columns = [

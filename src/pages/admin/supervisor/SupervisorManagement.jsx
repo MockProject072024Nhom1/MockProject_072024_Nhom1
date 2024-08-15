@@ -44,7 +44,7 @@ const SupervisorManagement = () => {
 
   const handleDeleteConfirm = () => {
     const updatedRows = rows.filter((row) => !selectedRows.includes(row.id));
-    setRows(updatedRows); 
+    setRows(updatedRows);
     console.log(`Deleted items with IDs: ${selectedRows}`);
     handleDeleteClose();
   };

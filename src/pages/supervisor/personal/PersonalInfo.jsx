@@ -27,7 +27,7 @@ const PersonalInfo = () => {
     password: "***************",
   };
 
-  const [isModified, setIsModified] = useState(false);
+  const [isModified, setIsModified] = useState(false); 
   const [supervisor, setSupervisor] = useState(initialSupervisorData);
   const [originalSupervisor, setOriginalSupervisor] = useState(
     initialSupervisorData
@@ -36,7 +36,7 @@ const PersonalInfo = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSupervisor({ ...supervisor, [name]: value });
-    setIsModified(true);
+    setIsModified(true); 
   };
 
   const handleFileUpload = (e) => {

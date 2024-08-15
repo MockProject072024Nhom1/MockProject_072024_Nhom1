@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "@mui/material";
 
 const UserManagement = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -101,7 +101,7 @@ const UserManagement = () => {
         <TableUser
           selectedRows={selectedRows}
           setSelectedRows={setSelectedRows}
-          rows={rows}
+          rows={rows} 
           setRows={setRows} 
         />
 

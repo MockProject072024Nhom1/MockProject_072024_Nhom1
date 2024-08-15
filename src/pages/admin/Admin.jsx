@@ -1,21 +1,20 @@
 import React from "react";
-import AdminSideBar from "./AdminSideBar";
-import Header from "./AdminHeader";
+import { useLocation } from "react-router-dom";
+import AdminHeader from "./AdminHeader"; 
 import MainContent from "./MainContent";
-import Sidebar from "./SideBar";
-
+import AdminSideBar from "./AdminSideBar";
 
 const Admin = () => {
+  const location = useLocation(); 
   const handleClose = () => {};
-
   return (
     <div>
-      <Header />
+      <AdminHeader />
       <div className="lg:flex justify-between">
         <div>
-          <Sidebar handleClose={handleClose} />
+          <AdminSideBar activePath={location.pathname} handleClose={handleClose} /> 
         </div>
-        <MainContent />
+        <MainContent/>
       </div>
     </div>
   );

@@ -30,9 +30,8 @@ const EditBodyguard = () => {
   });
 
   useEffect(() => {
-    // check and data transmission
     if (location.state) {
-      setBodyguard(location.state); 
+      setBodyguard(location.state);
     }
   }, [location.state]);
 

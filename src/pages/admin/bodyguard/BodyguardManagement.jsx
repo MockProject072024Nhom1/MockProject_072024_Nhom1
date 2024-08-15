@@ -13,7 +13,6 @@ const BodyguardManagement = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
 
-  // set open/close modal
   const handleDeleteOpen = () => {
     setOpenModal(true);
   };

@@ -1,15 +1,5 @@
 import React, { useState } from "react";
-import { FaUpload } from "react-icons/fa";
-import {
-  TextField,
-  MenuItem,
-  Button,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  FormLabel,
-} from "@mui/material";
-import { FaRegCircleUser } from "react-icons/fa6";
+import { TextField, MenuItem, Button } from "@mui/material";
 import { LuPencil } from "react-icons/lu";
 
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -49,13 +39,13 @@ const AddContract = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-6">
-      <div className="w-4/6">
+    <div className="flex flex-col items-center justify-center p-2 mt-24">
+      <div className="w-4/6 ml-12">
         <form
           className="bg-white rounded w-full max-w-4xl"
           onSubmit={handleSubmit}
         >
-          <h2 className="text-2xl font-bold mb-4">Add New Contract</h2>
+          <h2 className="text-2xl font-bold text-center">Add New Contract</h2>
           <div className="flex gap-4">
             <div className="w-11/12">
               <div className="flex flex-col w-full mt-4 mb-4">
@@ -97,19 +87,19 @@ const AddContract = () => {
               <div className="mt-2 flex gap-4">
                 <div className="flex flex-col w-full">
                   <label className="text-sm font-medium mb-1">
-                    Certificate
+                    Start Date
                   </label>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={["DatePicker"]}>
-                      <DatePicker label="Basic date picker" />
+                      <DatePicker sx={{width : "370px"}} label="Basic date picker" />
                     </DemoContainer>
                   </LocalizationProvider>
                 </div>
                 <div className="flex flex-col w-full">
-                  <label className="text-sm font-medium mb-1">Experience</label>
+                  <label className="text-sm font-medium mb-1">End Date</label>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={["DatePicker"]}>
-                      <DatePicker label="Basic date picker" fullWidth />
+                      <DatePicker sx={{width : "370px"}} label="Basic date picker" fullWidth />
                     </DemoContainer>
                   </LocalizationProvider>
                 </div>
@@ -218,21 +208,25 @@ const AddContract = () => {
             </div>
           </div>
 
-          <Button type="submit" variant="contained" className="w-1/3">
+          <Button
+            sx={{ color: "#fff", backgroundColor: "#000", borderRadius: 2 }}
+            type="submit"
+            variant="contained"
+            className="w-1/4"
+          >
             Create
           </Button>
         </form>
       </div>
 
       <div>
-        <div className="mt-8 text-center text-3xl">
+        <div className="mt-12 text-center text-2xl font-bold">
           <label>List Bodyguard</label>
         </div>
 
         <div className="mt-6">
-          <TableContract/>
+          <TableContract />
         </div>
-
       </div>
     </div>
   );

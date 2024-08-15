@@ -40,7 +40,7 @@ export default function TableBodyguard({
   const handleRowSelection = (newSelection) => {
     const selectedIds = newSelection; 
     setSelectedRows(selectedIds);
-    console.log(`Selected IDs: ${selectedIds}`);
+    console.log(`Selected IDs: ${selectedIds}`); 
   };
 
   const columns = (navigate) => [
@@ -94,7 +94,7 @@ export default function TableBodyguard({
         return (
           <EditIcon
             style={{ cursor: "pointer" }}
-            onClick={handleEditClick} // 
+            onClick={handleEditClick}
           />
         );
       },
@@ -116,7 +116,7 @@ export default function TableBodyguard({
         onRowSelectionModelChange ={handleRowSelection}
         sx={{
           "& .MuiDataGrid-cell": {
-            fontSize: "0.875rem",
+            fontSize: "0.875rem", 
           },
           "& .MuiDataGrid-columnHeader": {
             fontSize: "0.875rem", 

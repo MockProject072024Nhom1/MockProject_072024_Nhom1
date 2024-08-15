@@ -86,7 +86,6 @@ const EditSchedule = () => {
     setSelectedCell({ rowIndex, cellIndex });
   };
 
-  // Logic add time modal
   const handleAddTime = () => {
     if (selectedCell) {
       const { rowIndex, cellIndex } = selectedCell;
@@ -100,15 +99,14 @@ const EditSchedule = () => {
         setEndTime("");
       }
 
-      setOpen(true); 
+      setOpen(true);
     }
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false); 
   };
 
-  // Save data change
   const handleSave = () => {
     if (selectedCell) {
       const { rowIndex, cellIndex } = selectedCell;
@@ -118,7 +116,6 @@ const EditSchedule = () => {
       setSchedule(updatedSchedule);
       setOpen(false);
 
-      // Reset selectedCell và time
       setSelectedCell(null);
       setStartTime("");
       setEndTime("");
@@ -172,7 +169,7 @@ const EditSchedule = () => {
                   border: "2px solid black",
                   borderRadius: 4,
                   "& .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
+                    border: "none", 
                   },
                   "& input": {
                     color: "#007BFF",
@@ -190,7 +187,6 @@ const EditSchedule = () => {
           </div>
         </div>
 
-        {/* Bảng lịch trình */}
         <TableContainer className="pb-24 ">
           <Table className="border-2 border-black">
             <TableHead className="border-2 border-black">
@@ -278,7 +274,7 @@ const EditSchedule = () => {
                 <TextField
                   type="time"
                   value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
+                  onChange={(e) => setStartTime(e.target.value)} 
                   className="mx-2"
                   sx={{
                     "& .MuiOutlinedInput-notchedOutline": {
@@ -290,7 +286,7 @@ const EditSchedule = () => {
                 <TextField
                   type="time"
                   value={endTime}
-                  onChange={(e) => setEndTime(e.target.value)}
+                  onChange={(e) => setEndTime(e.target.value)} 
                   className="mx-2"
                   sx={{
                     "& .MuiOutlinedInput-notchedOutline": {

@@ -92,7 +92,7 @@ const Statistics = () => {
         setEndTime("");
       }
 
-      setOpen(true);
+      setOpen(true); 
     }
   };
 
@@ -103,7 +103,6 @@ const Statistics = () => {
   const handleSave = () => {
     if (selectedCell) {
       const { rowIndex, cellIndex } = selectedCell;
-    
       const updatedSchedule = [...schedule];
       updatedSchedule[rowIndex].hours[cellIndex] = [startTime, endTime];
 
@@ -135,7 +134,7 @@ const Statistics = () => {
                   border: "2px solid black",
                   borderRadius: 4,
                   "& .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
+                    border: "none", 
                   },
                   "& input": {
                     color: "#007BFF",

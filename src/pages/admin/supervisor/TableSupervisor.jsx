@@ -82,7 +82,7 @@ export default function TableSupervisor({
       width: 50,
       renderCell: (params) => {
         const handleEditClick = () => {
-          navigate("/admin/supervisor/edit", { state: params.row });
+          navigate("/admin/supervisor/edit", { state: params.row }); 
         };
   
         return (
@@ -112,7 +112,7 @@ export default function TableSupervisor({
             fontSize: "0.875rem", 
           },
           "& .MuiDataGrid-columnHeader": {
-            fontSize: "0.875rem",
+            fontSize: "0.875rem", 
           },
         }}
       />

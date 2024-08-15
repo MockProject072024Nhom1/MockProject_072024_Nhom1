@@ -32,7 +32,7 @@ export default function TableUser({
   const navigate = useNavigate();
 
   const handleRowSelection = (newSelection) => {
-    const selectedIds = newSelection;
+    const selectedIds = newSelection; 
     setSelectedRows(selectedIds);
     console.log(`Selected IDs: ${selectedIds}`); 
   };
@@ -79,13 +79,13 @@ export default function TableUser({
       width: 50,
       renderCell: (params) => {
         const handleEditClick = () => {
-          navigate("/admin/user/edit", { state: params.row });
+          navigate("/admin/user/edit", { state: params.row }); 
         };
 
         return (
           <EditIcon
             style={{ cursor: "pointer" }}
-            onClick={handleEditClick}
+            onClick={handleEditClick} 
           />
         );
       },
@@ -106,10 +106,10 @@ export default function TableUser({
         onRowSelectionModelChange={handleRowSelection} 
         sx={{
           "& .MuiDataGrid-cell": {
-            fontSize: "0.875rem", 
+            fontSize: "0.875rem",
           },
           "& .MuiDataGrid-columnHeader": {
-            fontSize: "0.875rem",
+            fontSize: "0.875rem", 
           },
         }}
       />

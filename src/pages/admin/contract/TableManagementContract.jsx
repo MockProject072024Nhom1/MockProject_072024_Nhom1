@@ -36,7 +36,7 @@ export default function TableManagementContract({
   const handleRowSelection = (newSelection) => {
     const selectedIds = newSelection; 
     setSelectedRows(selectedIds);
-    console.log(`Selected IDs: ${selectedIds}`);
+    console.log(`Selected IDs: ${selectedIds}`); 
   };
 
   const columns = [
@@ -110,7 +110,7 @@ export default function TableManagementContract({
             fontSize: "0.875rem", 
           },
           "& .MuiDataGrid-columnHeader": {
-            fontSize: "0.875rem",
+            fontSize: "0.875rem", 
           },
         }}
       />

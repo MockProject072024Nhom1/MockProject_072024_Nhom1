@@ -6,6 +6,8 @@ import {
   Typography,
   Grid,
   Button,
+  TextField,
+  MenuItem,
 } from "@mui/material";
 import {
   BarChart,
@@ -19,7 +21,6 @@ import {
   Tooltip,
   LineChart,
   Line,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -27,6 +28,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import GroupIcon from "@mui/icons-material/Group";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import { PiChartLineFill } from "react-icons/pi";
 
 const dataBar = [
   { name: "January", value: 5 },
@@ -61,7 +63,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Dashboard = () => {
   return (
-    <Box>
+    <Box sx={{ marginTop: "50px", padding: 4 }}>
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <Button
           variant="contained"
@@ -152,41 +154,141 @@ const Dashboard = () => {
       </Grid>
 
       <Box mt={4}>
-        {/* Bar Chart */}
-        <Card sx={{ borderRadius: "8px", padding: 2 }}>
-          <Typography variant="h6" component="div" sx={{ marginBottom: 2 }}>
-            Revenue
-          </Typography>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={dataBar}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="#17a2b8" />
-            </BarChart>
-          </ResponsiveContainer>
+        <Card sx={{ borderRadius: "8px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: 2,
+              height: "60px",
+            }}
+          >
+            <Typography
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 2,
+              }}
+              variant="h6"
+              component="div"
+            >
+              <PiChartLineFill className="mr-2" /> Revenue
+            </Typography>
+            <TextField
+              select
+              variant="outlined"
+              size="small"
+              sx={{ width: 160, height: 40, fontWeight: "bold" }} 
+            >
+              <MenuItem value="2024">2024</MenuItem>
+              <MenuItem value="2023">2023</MenuItem>
+            </TextField>
+          </Box>
+
+          <Box
+            sx={{
+              height: 1.1,
+              backgroundColor: "#cccccc",
+              marginBottom: 2,
+              padding: "none",
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              height: "400px",
+            }}
+          >
+            <Box sx={{ flex: "0 0 16%", textAlign: "center", height: "400px" }}>
+              <Typography
+                variant="h5"
+                sx={{ marginBottom: 1, fontWeight: "bold" }}
+              >
+                $820,000
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  mt: 4,
+                  flexDirection: "column",
+                  height: "100%", 
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                  <TrendingUpIcon
+                    sx={{ color: "#28a745", fontSize: 20, mr: 1 }}
+                  />
+                  <Typography sx={{ color: "#28a745", fontSize: 22 }}>
+                    8%
+                  </Typography>
+                </Box>
+                <Typography sx={{ fontSize: 14 }}>Since last year</Typography>
+              </Box>
+            </Box>
+
+            {/* Div d */}
+            <Box sx={{ flex: "0 0 80%", textAlign: "left", height: "400px" }}>
+              <Typography variant="h6" sx={{ marginBottom: 1, marginLeft: 4 }}>
+                $K
+              </Typography>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={dataBar} height={200}>
+                  <CartesianGrid strokeDasharray="3 3" height={200} />
+                  <XAxis
+                    dataKey="name"
+                    angle={-25}
+                    textAnchor="middle"
+                    interval={0}
+                    tick={{
+                      fontSize: 12,
+                      marginTop: "4px",
+                      fontWeight: "bold",
+                      style: { overflow: "visible" },
+                    }} 
+                  />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="value" fill="#17a2b8" barSize={40} />
+                </BarChart>
+              </ResponsiveContainer>
+            </Box>
+            <Box sx={{ flex: "0 0 4%" }}></Box>
+          </Box>
         </Card>
       </Box>
 
       <Grid container spacing={4} mt={4}>
         <Grid item xs={7}>
           {/* Line Chart */}
-          <Card sx={{ borderRadius: "8px", padding: 2 }}>
+          <Card sx={{ borderRadius: "8px", padding: 1 }}>
             <Typography variant="h6" component="div" sx={{ marginBottom: 2 }}>
               New Register
             </Typography>
-            {/* Thanh ngang nhạt */}
             <Box
-              sx={{ height: 1.1, backgroundColor: "#cccccc", marginBottom: 2 }}
+              sx={{ height: 1.1, backgroundColor: "#cccccc", marginBottom: 2, padding: "none" }}
             />
             <Grid container>
               <Grid item xs={10}>
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={315}>
                   <LineChart data={dataLine}>
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid
+                      vertical={false}
+                        
+                      stroke="#ccc"
+                      strokeWidth={2} 
+                    />
                     <XAxis dataKey="name" />
-                    <YAxis />
+                    <YAxis
+                      domain={[0, 400]}
+                      ticks={[0, 100, 200, 300, 400]}
+                      tickLine={false}
+                      axisLine={false}
+                      interval={0}
+                    />
                     <Tooltip />
                     <Line
                       type="monotone"
@@ -202,7 +304,6 @@ const Dashboard = () => {
                 </ResponsiveContainer>
               </Grid>
               <Grid item xs={2}>
-                {/* Legend và thông tin */}
                 <Box sx={{ paddingTop: 4, marginLeft: 2 }}>
                   <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                     <Box
@@ -263,9 +364,8 @@ const Dashboard = () => {
             <Typography variant="h6" component="div" sx={{ marginBottom: 2 }}>
               Total by abc
             </Typography>
-            {/* Thanh ngang nhạt */}
             <Box
-              sx={{ height: 1.1, backgroundColor: "#cccccc", marginBottom: 2 }}
+              sx={{ height: 1.1, backgroundColor: "#cccccc", marginBottom: 2 , padding: "none" }}
             />
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -273,11 +373,11 @@ const Dashboard = () => {
                   data={dataPie}
                   cx="50%"
                   cy="50%"
-                  innerRadius={40} // Giảm innerRadius để tạo lỗ nhỏ hơn
+                  innerRadius={40} 
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
-                  label={({ percent }) => `${(percent * 100).toFixed(1)}%`} // Hiển thị % trên các phân đoạn
+                  label={({ percent }) => `${(percent * 100).toFixed(1)}%`} 
                 >
                   {dataPie.map((entry, index) => (
                     <Cell

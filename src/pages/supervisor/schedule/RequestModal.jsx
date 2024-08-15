@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Table } from '@mui/material';
+import { Modal} from '@mui/material';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import TableSchedule from './TableSchedule';
 

@@ -52,7 +52,7 @@ const AddBodyguard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle logic later
+    // Handle form submission logic
     console.log(bodyguard);
   };
 

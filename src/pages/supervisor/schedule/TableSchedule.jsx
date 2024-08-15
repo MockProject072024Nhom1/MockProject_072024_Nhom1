@@ -76,7 +76,7 @@ export default function TableSchedule() {
               cursor: 'pointer',
             }}
             onClick={(e) => {
-              e.stopPropagation(); 
+              e.stopPropagation();
               togglePermission(params.id);
             }}
           >

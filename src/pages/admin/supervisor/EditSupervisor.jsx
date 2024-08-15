@@ -30,7 +30,6 @@ const EditSupervisor = () => {
   });
 
   useEffect(() => {
-    // check and data transmission
     if (location.state) {
       setSupervisor(location.state); 
     }

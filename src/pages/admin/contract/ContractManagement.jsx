@@ -3,12 +3,12 @@ import { HiOutlineTrash, HiOutlinePlus } from "react-icons/hi2";
 import { IoFilter } from "react-icons/io5";
 import { FiDownloadCloud } from "react-icons/fi";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import TableManagementContract from "./TableManagementContract";
 import { Button, Modal } from "@mui/material";
 
 const ContractManagement = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -44,7 +44,6 @@ const ContractManagement = () => {
     },
   ]);
 
-  //Delete selected row
   const handleDeleteConfirm = () => {
     const updatedRows = rows.filter((row) => !selectedRows.includes(row.id));
     setRows(updatedRows); 
@@ -102,11 +101,12 @@ const ContractManagement = () => {
         </div>
 
         {/* Table */}
+
         <TableManagementContract
           selectedRows={selectedRows}
           setSelectedRows={setSelectedRows}
           rows={rows} 
-          setRows={setRows} 
+          setRows={setRows}
         />
 
         <Modal
