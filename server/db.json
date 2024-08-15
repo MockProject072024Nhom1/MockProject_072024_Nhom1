@@ -1,0 +1,272 @@
+{
+  "sliders": [
+    {
+      "id": 1,
+      "member": "Personal Security Guard",
+      "image": "https://www.staffingattiffanies.com/wp-content/uploads/2023/03/personal-security-guard-standing-in-front-of-a-vehicle.jpg",
+      "description": "We offer top-tier personal protection services to ensure your safety and peace of mind. Our experienced security professionals provide discreet, reliable protection tailored to your needs, whether for yourself, your family, or high-profile events. Using advanced techniques and technology, we deliver exceptional service, allowing you to live with confidence and security. The scope of the service will include:",
+      "listJob": [
+        "Personal protection",
+        "Escorts",
+        "Transportation",
+        "Surveillance",
+        "Other services (if applicable)"
+      ]
+    },
+    {
+      "id": 2,
+
+      "member": "Event Security Guard",
+      "image": "https://smartsecuritypros.com/wp-content/uploads/2020/02/event-security-guards.jpeg",
+      "description": "We offer expert event security services to ensure your event runs smoothly and safely. Our team handles crowd control, access management, emergency response, and threat assessment, creating a customized security plan based on your event’s needs. With our focus on safety and guest experience, you can trust us to provide a secure environment for a successful, memorable event. The scope of the service will include:",
+      "listJob": [
+        "Maintaining order and preventing disturbances",
+        "Access control and crowd management",
+        "Directing and assisting attendees",
+        "Emergency response procedures",
+        "Any other specific duties"
+      ]
+    },
+    {
+      "id": 3,
+
+      "member": "Commercial Security Guard",
+      "image": "https://talonsecurityservice.com/wp-content/uploads/2022/11/security-guard-services-for-retail-troy-michigan.jpg",
+      "description": "We provide premium commercial security services to safeguard your assets, employees, and premises. Our skilled professionals use advanced technology and effective strategies for surveillance, alarms, on-site security, and emergency response. We tailor our services to your business's needs, ensuring smooth and secure operations so you can focus on growing your business with peace of mind. The scope of the service will include:",
+      "listJob": [
+        "Property protection",
+        "Access control",
+        "Monitoring and surveillance",
+        "Emergency response procedures",
+        "Any other specific duties"
+      ]
+    },
+    {
+      "id": 4,
+
+      "member": "Aviation Security Guard",
+      "image": "https://www.centralprotection.ca/wp-content/uploads/2022/12/Security.webp",
+      "description": "We offer specialized aviation security services to ensure safe and efficient air travel. Our trained professionals handle passenger screening, baggage inspection, airside security, and perimeter protection using the latest technology and industry standards. Partner with us for top-tier security, ensuring smooth and reliable travel experiences. The scope of the service will include:",
+      "listJob": [
+        "Conducting security checks at checkpoints",
+        "Screening passengers and baggage",
+        "Detecting and responding to security threats",
+        "Handling emergency situations",
+        "Any other specific duties"
+      ]
+    },
+    {
+      "id": 5,
+
+      "member": "Transportation Security Guard",
+      "image": "https://royalguardss.com/wp-content/uploads/2023/05/17.jpg",
+      "description": "We provide thorough transport security services to protect your shipments and ensure safe delivery. Our team handles cargo monitoring, vehicle tracking, and threat assessment using advanced measures to guard against theft and tampering. Customized to your logistics needs, our services ensure your cargo arrives securely and on time. Trust us for reliable protection of your valuable assets. The scope of the service will include:",
+      "listJob": [
+        "Protecting cargo during transport",
+        "Ensuring the security of transportation vehicles",
+        "Escorting drivers and attendants",
+        "Responding to emergencies",
+        "Other services (if applicable)"
+      ]
+    }
+  ],
+  "bodyguards": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "cost": 100.5
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "cost": 150.75
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "cost": 200.0
+    },
+    {
+      "id": 4,
+      "name": "Robert Brown",
+      "cost": 175.25
+    },
+    {
+      "id": 5,
+      "name": "Michael Davis",
+      "cost": 300.4
+    },
+    {
+      "id": 6,
+      "name": "Emily Wilson",
+      "cost": 250.6
+    },
+    {
+      "id": 7,
+      "name": "David Martinez",
+      "cost": 120.9
+    },
+    {
+      "id": 8,
+      "name": "Sophia Garcia",
+      "cost": 220.8
+    },
+    {
+      "id": 9,
+      "name": "James White",
+      "cost": 99.99
+    },
+    {
+      "id": 10,
+      "name": "Linda Taylor",
+      "cost": 180.3
+    }
+  ],
+  "contracts": [
+    {
+      "contractId": "12345",
+      "signingDate": "2024-13-08",
+      "startDate": "2024-08-13",
+      "finishDate": "2024-12-13",
+      "supervisor": "John Doe",
+      "status": "30% prepayment",
+      "venue": "123 Main St, City, Country",
+      "manQuantity": 10,
+      "womanQuantity": 5,
+      "service": "Event",
+      "contractCost": 50000
+    },
+    {
+      "contractId": "12346",
+      "signingDate": "2024-13-08",
+      "startDate": "2024-09-01",
+      "finishDate": "2024-11-30",
+      "supervisor": "Jane Smith",
+      "status": "50% prepayment",
+      "venue": "456 Elm St, City, Country",
+      "manQuantity": 8,
+      "womanQuantity": 7,
+      "service": "Personal",
+      "contractCost": 40000
+    },
+    {
+      "contractId": "12347",
+      "signingDate": "2024-13-08",
+      "startDate": "2024-10-15",
+      "finishDate": "2025-01-15",
+      "supervisor": "Mike Johnson",
+      "status": "20% prepayment",
+      "venue": "789 Oak St, City, Country",
+      "manQuantity": 12,
+      "womanQuantity": 6,
+      "service": "Shopping Mall",
+      "contractCost": 60000
+    },
+    {
+      "contractId": "12348",
+      "signingDate": "2024-13-08",
+      "startDate": "2024-11-01",
+      "finishDate": "2025-02-01",
+      "supervisor": "Emily Davis",
+      "status": "40% prepayment",
+      "venue": "101 Pine St, City, Country",
+      "manQuantity": 9,
+      "womanQuantity": 4,
+      "service": "Shopping Mall",
+      "contractCost": 45000
+    }
+  ],
+  "schedules": [
+    {
+      "date": "2024-08-12",
+      "contracts": [
+        {
+          "id": "Pending",
+          "startdate": "",
+          "finishdate": "",
+          "venue": "",
+          "time": ""
+        }
+      ]
+    },
+    {
+      "date": "2024-08-13",
+      "contracts": [
+        {
+          "id": "Day off",
+          "startdate": "",
+          "finishdate": "",
+          "venue": "",
+          "time": ""
+        }
+      ]
+    },
+    {
+      "date": "2024-08-14",
+      "contracts": [
+        {
+          "id": "CT001",
+          "startdate": "2024-08-14",
+          "finishdate": "2024-08-14",
+          "venue": "Room 101, Building A",
+          "time": "09:00-11:00"
+        },
+        {
+          "id": "CT002",
+          "startdate": "2024-08-14",
+          "finishdate": "2024-08-14",
+          "venue": "Room 102, Building A",
+          "time": "11:00-13:00"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-15",
+      "contracts": [
+        {
+          "id": "CT003",
+          "startdate": "2024-08-15",
+          "finishdate": "2024-08-15",
+          "venue": "Room 202, Building B",
+          "time": "10:00-12:00"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-16",
+      "contracts": [
+        {
+          "id": "CT004",
+          "startdate": "2024-08-16",
+          "finishdate": "2024-08-16",
+          "venue": "Room 303, Building C",
+          "time": "11:00-14:00"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-17",
+      "contracts": [
+        {
+          "id": "CT005",
+          "startdate": "2024-08-17",
+          "finishdate": "2024-08-17",
+          "venue": "Room 404, Building D",
+          "time": "09:00-11:00"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-18",
+      "contracts": [
+        {
+          "id": "CT006",
+          "startdate": "2024-08-18",
+          "finishdate": "2024-08-18",
+          "venue": "Room 505, Building E",
+          "time": "08:10-12:00"
+        }
+      ]
+    }
+  ]
+}
