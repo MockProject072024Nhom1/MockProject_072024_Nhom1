@@ -1,7 +1,6 @@
 package com.viettridao.mock.entity;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class ContractEntity {
     private String name;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDate createdAt;
 
     @Column(name = "start_date")
     private LocalDate startDate;
@@ -55,6 +54,7 @@ public class ContractEntity {
     private String contractStatus;
 
     @Lob
+    @Column(name = "[file]")
     private byte[] file;
 
     @ManyToOne(fetch = FetchType.LAZY)

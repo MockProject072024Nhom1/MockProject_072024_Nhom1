@@ -1,7 +1,6 @@
 package com.viettridao.mock.dto;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public class ContractDTO {
 
     private Integer contractId;
     private String name;
-    private Timestamp createdAt;
+    private LocalDate createdAt;
     private LocalDate startDate;
     private LocalDate finishDate;
     private BigDecimal cost;
