@@ -48,6 +48,7 @@ public class UserEntity {
 
     private LocalDate dob;
 
+    @Column(name = "user_status")
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
