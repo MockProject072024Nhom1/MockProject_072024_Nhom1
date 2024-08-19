@@ -8,17 +8,25 @@ import org.springframework.stereotype.Component;
 
 import com.viettridao.mock.dto.BodyguardDTO;
 import com.viettridao.mock.dto.ServiceDTO;
+import com.viettridao.mock.dto.UserDTO;
 import com.viettridao.mock.entity.BodyguardEntity;
 import com.viettridao.mock.entity.ServiceEntity;
+import com.viettridao.mock.entity.UserEntity;
 
 @Component
 public class BodyguardConverter {
     
     private ServiceConverter serviceConverter;
+    private UserConverter userConverter;
 
     @Autowired
     public void setServiceConverter(@Lazy ServiceConverter serviceConverter) {
         this.serviceConverter = serviceConverter;
+    }
+
+    @Autowired
+    public void setUserConverter(@Lazy UserConverter userConverter) {
+        this.userConverter = userConverter;
     }
 
     public BodyguardDTO toDTO(BodyguardEntity entity) {
@@ -30,7 +38,8 @@ public class BodyguardConverter {
         bodyguardDTO.setHealth(entity.getHealth());
         bodyguardDTO.setSkills(entity.getSkills());
         bodyguardDTO.setStatus(entity.getStatus());
-        bodyguardDTO.setService(toServiceDTO(entity.getService()));
+        bodyguardDTO.setService(entity.getService() != null ? toServiceDTO(entity.getService()) : null);
+        bodyguardDTO.setUser(entity.getUser() != null ? toUserDTO(entity.getUser()) : null);
 
         return bodyguardDTO;
     }
@@ -43,8 +52,9 @@ public class BodyguardConverter {
         bodyguardEntity.setSalary(dto.getSalary());
         bodyguardEntity.setHealth(dto.getHealth());
         bodyguardEntity.setSkills(dto.getSkills());
-        bodyguardEntity.setStatus(dto.getStatus());
-        bodyguardEntity.setService(toServiceEntity(dto.getService()));
+        bodyguardEntity.setStatus(dto.getStatus() != null ? dto.getStatus() : "Working");
+        bodyguardEntity.setService(dto.getService() != null ? toServiceEntity(dto.getService()) : null);
+        bodyguardEntity.setUser(dto.getUser() != null ? toUserEntity(dto.getUser()) : null);
 
         return bodyguardEntity;
     }
@@ -55,6 +65,14 @@ public class BodyguardConverter {
 
     private ServiceEntity toServiceEntity(ServiceDTO serviceDTO) {
         return serviceConverter.toEntity(serviceDTO);
+    }
+
+    private UserDTO toUserDTO(UserEntity userEntity) {
+        return userConverter.toDTO(userEntity);
+    }
+
+    private UserEntity toUserEntity(UserDTO userDTO) {
+        return userConverter.toEntity(userDTO);
     }
 
 }

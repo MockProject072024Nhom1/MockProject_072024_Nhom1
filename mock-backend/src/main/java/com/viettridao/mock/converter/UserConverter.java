@@ -6,24 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import com.viettridao.mock.dto.BodyguardDTO;
 import com.viettridao.mock.dto.RoleDTO;
 import com.viettridao.mock.dto.UserDTO;
-import com.viettridao.mock.entity.BodyguardEntity;
 import com.viettridao.mock.entity.RoleEntity;
 import com.viettridao.mock.entity.UserEntity;
 
 @Component
 public class UserConverter {
 
-    private BodyguardConverter bodyguardConverter;
-
     private RoleConverter roleConverter;
-
-    @Autowired
-    public void setBodyguardConverter(@Lazy BodyguardConverter bodyguardConverter) {
-        this.bodyguardConverter = bodyguardConverter;
-    }
 
     @Autowired
     public void setRoleConverter(@Lazy RoleConverter roleConverter) {
@@ -49,8 +40,7 @@ public class UserConverter {
         }
         userDTO.setDob(entity.getDob());
         userDTO.setStatus(entity.getStatus());
-        userDTO.setBodyguard(toBodyguardDTO(entity.getBodyguard()));
-        userDTO.setRole(toRoleDTO(entity.getRole()));
+        userDTO.setRole(entity.getRole() != null ? toRoleDTO(entity.getRole()) : null);
 
         return userDTO;
     }
@@ -74,18 +64,9 @@ public class UserConverter {
         }
         userEntity.setDob(dto.getDob());
         userEntity.setStatus(dto.getStatus() == null ? "Active" : dto.getStatus());
-        userEntity.setBodyguard(toBodyguardEntity(dto.getBodyguard()));
-        userEntity.setRole(toRoleEntity(dto.getRole()));
+        userEntity.setRole(dto.getRole() != null ? toRoleEntity(dto.getRole()) : null);
 
         return userEntity;
-    }
-
-    private BodyguardDTO toBodyguardDTO(BodyguardEntity bodyguardEntity) {
-        return bodyguardConverter.toDTO(bodyguardEntity);
-    }
-
-    private BodyguardEntity toBodyguardEntity(BodyguardDTO bodyguardDTO) {
-        return bodyguardConverter.toEntity(bodyguardDTO);
     }
 
     private RoleDTO toRoleDTO(RoleEntity roleEntity) {

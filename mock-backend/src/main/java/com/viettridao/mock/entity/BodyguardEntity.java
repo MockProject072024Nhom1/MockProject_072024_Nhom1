@@ -12,11 +12,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
 import lombok.Data;
 
 @Entity
@@ -25,6 +23,7 @@ import lombok.Data;
 public class BodyguardEntity {
 
     @Id
+    @Column(name = "bodyguard_id")
     private Integer bodyguardId;
 
     @Lob
@@ -41,7 +40,6 @@ public class BodyguardEntity {
     @Column(name = "bg_status")
     private String status;
 
-    @MapsId
     @OneToOne
     @JoinColumn(name = "bodyguard_id", referencedColumnName = "user_id")
     private UserEntity user;
