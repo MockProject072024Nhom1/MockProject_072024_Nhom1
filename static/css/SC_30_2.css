@@ -1,0 +1,105 @@
+.bodyguard-content{
+    padding-left: 20px;
+}
+#datepicker--input-text{
+    color:#0070ff;
+}
+.bodyguard-content_calendar__dayofweek,
+.bodyguard-content_calendar__dayofmonth{
+    display: flex;
+    background-color: #f2e56e;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.bodyguard-content_calendar__dayofmonth{
+    background-color: lightyellow;
+}
+.bodyguard-content_calendar__dayofweek h4{
+    margin-top: 0;
+}
+.bodyguard-content_calendar__dayofmonth--details,
+.bodyguard-content_calendar__dayofweek div{
+    min-width: 110px;
+    margin-right: 20px;
+    text-align: center;
+}
+.contract-card{
+    width: 90%;
+    background-color: #caf0f8;
+    margin-bottom:20px;
+    box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.5); 
+    cursor: pointer;
+}
+.contract-card span{
+    margin-right:3px;
+}
+.day-off{
+    background-color: #ff6363;
+    cursor:auto;
+}
+.bodyguard-content_dayoffbutton button{
+    border: none;
+    background-color: #0070ff;
+    font-weight: bold;
+}
+#request-plus-icon{
+    margin-right:5px;
+}
+@media (min-width:1007px) {
+    .bodyguard-content_datepicker{
+        width: 910px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 35px;
+    }
+    .bodyguard-content_datepicker--input{
+        border: solid 1px black;
+        border-radius: 6px;
+        height: 30px;
+        width:150px;
+        line-height: 30px;
+        padding-left:10px;
+        padding-right:6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .bodyguard-content_datepicker__navbutton{
+        line-height: 30px;
+        font-size: 22px;
+    }
+    .bodyguard-content_calendar__dayofweek{
+        width: 910px;
+        height: 35px;
+        border: solid 1px black;
+        padding-top:6px;
+        border-radius: 6px;
+    }
+    .bodyguard-content_calendar__dayofmonth{
+        width:910px;
+        min-height: 100px;
+        padding-top:6px;
+        border-radius: 6px;
+    }
+    .contract-card{
+        height:30px;
+        line-height: 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size:12px;
+    }
+    .bodyguard-content_dayoffbutton{
+        width:910px;
+        margin-top: 20px;
+        text-align: right;
+    }
+    .bodyguard-content_dayoffbutton button{
+        padding: 5px;
+        border-radius: 8px;
+        float:right;
+        cursor: pointer;
+    }
+
+}
+

@@ -1,0 +1,177 @@
+.bodyguard-content{
+    margin-top: 30px;
+}
+.bodyguard-content_form--name, 
+.bodyguard-content_form--jobinfo,
+.bodyguard-content_form--gender{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+label{
+    display: block;
+    font-weight: bold;
+}
+label[for="gender"]{
+    display: inline;
+    font-weight:normal;
+}
+select{
+    background-color: white;
+}
+#file-upload-input{
+    display:none;
+    /* opacity: 0;
+    position: absolute;
+    z-index: -1; */
+}
+
+.bodyguard-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    position: relative;
+}    
+.bodyguard-content_form {
+    grid-row: span 2; /* This makes the item span across two rows */
+    grid-column: 1; /* This places the item in the first column */
+}
+.bodyguard-content_form h1{
+    margin-top:0;
+}
+.bodyguard-content_portrait,
+.bodyguard-content_qr{
+    margin: 0 auto;
+}  
+#file-upload-button{
+    background-color: #c3c3c3;
+    padding-top:8px;
+    cursor: pointer;
+}
+@media (min-width: 1300px) {
+    .bodyguard-content{
+        padding-left: 80px;
+    }
+    .bodyguard-content_form{
+        width: 700px;
+        font-size: 17px;
+    } 
+    input:not([type="radio"]), 
+    select,
+    #file-upload-button{
+        width: 300px;
+        height: 40px;
+        padding-left:10px;
+        border: 2px solid #c3c3c3;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #email-input,
+    #password-input{
+        width: 100%;     
+    }
+    #gender-container{
+        width:250px;
+    }
+    .form-section{
+        margin-bottom: 12px;
+    }
+    #file-upload-button{
+        padding-top:9px;
+    }
+    .bodyguard-content_form--jobinfo input,
+    .bodyguard-content_form--jobinfo select{
+        margin-bottom: 12px;
+    }
+    .bodyguard-content_portrait img{
+        width: 100px;
+    }
+    .bodyguard-content_qr{
+        position:relative;
+        margin-top: -150px;
+        text-align: center;
+    }  
+    .bodyguard-content_qr img{
+        width: 200px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .bodyguard-content{
+        padding-left: 53px;
+    }
+    .bodyguard-content_form{
+        width: 466px;
+        font-size: 14px;
+    } 
+    input:not([type="radio"]), 
+    select,
+    #file-upload-button{
+        width: 200px;
+        height: 26px;
+        padding-left:7px;
+        border: 2px solid #c3c3c3;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    #email-input,
+    #password-input{
+        width: 100%;     
+    }
+    #gender-container{
+        width:250px;
+    }
+    .form-section{
+        margin-bottom: 8px;
+    }
+    #file-upload-button{
+        padding-top:2px;
+    }
+    .bodyguard-content_form--jobinfo input,
+    .bodyguard-content_form--jobinfo select{
+        margin-bottom: 8px;
+    }
+    .bodyguard-content_portrait img{
+        width: 67px;
+    }
+    .bodyguard-content_qr{
+        position:relative;
+        margin-top: -225px;
+        text-align: center;
+    }  
+    .bodyguard-content_qr img{
+        width: 133px;
+    }
+}
+@media (max-width:750px){
+    .bodyguard-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .bodyguard-content_portrait{
+        margin: 20px 0 20px 0;
+    }
+    .bodyguard-content_qr{
+        position: static;
+        margin: 0;
+        text-align: left;
+    }
+}
+@media (max-width: 640px) {
+    .bodyguard-content_form--name, 
+    .bodyguard-content_form--jobinfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    }
+    #email-input,
+    #password-input{
+        width: 200px;     
+    }
+    #gender-container{
+        width:100px;
+    }  
+}

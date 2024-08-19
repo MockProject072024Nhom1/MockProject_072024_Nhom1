@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/SC_30_2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1f2c2160df.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section id="bodyguard-section">
+        <div class="bodyguard-sidebar">
+            <div class="bodyguard-sidebar_options">
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-regular fa-calendar"></i></span><span class="bodyguard-sidebar_options__text">Calendar</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-regular fa-clock"></i></span><span class="bodyguard-sidebar_options__text">Timekeeping</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-solid fa-user"></i></span><span class="bodyguard-sidebar_options__text">Personal Info</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-solid fa-paperclip"></i></span><span class="bodyguard-sidebar_options__text">Contact</span></a></div>
+            </div>
+        </div>
+        <div class="bodyguard-content">
+            <h1>Calendar</h1>
+            <div class="bodyguard-content_datepicker">
+                <div class="bodyguard-content_datepicker--input"><span id="datepicker--input-text">July, 2024</span><span class="bodyguard-sidebar_datepicker__icons"><i class="fa-regular fa-calendar"></i></span></div>
+                <div class="bodyguard-content_datepicker__navbutton">
+                    <span class="bodyguard-sidebar_datepicker__icons"><i class="fa-regular fa-circle-left"></i></span>
+                    <span class="bodyguard-sidebar_datepicker__icons"><i class="fa-regular fa-circle-right"></i></span>
+                </div>
+            </div>
+            <div class="bodyguard-content_calendar">
+                <div class="bodyguard-content_calendar__dayofweek">
+                    <div>
+                        <h4>Mon</h4>
+                    </div>
+                    <div>
+                        <h4>Tue</h4>
+                    </div>
+                    <div>
+                        <h4>Wed</h4>
+                    </div>
+                    <div>
+                        <h4>Thur</h4>
+                    </div>
+                    <div>
+                        <h4>Fri</h4>
+                    </div>
+                    <div>
+                        <h4>Sat</h4>
+                    </div>
+                    <div>
+                        <h4>Sun</h4>
+                    </div>
+                </div>
+                <div class="bodyguard-content_calendar__dayofmonth">
+                    {% for date in week %}
+                    <div class="bodyguard-content_calendar__dayofmonth--details">
+                        <h4>{{ date }}</h4>
+                        {% for contract in contracts %}
+                        {% if date in contract %}
+                        <div class="contract-card"><span><i class="fa-regular fa-file-lines"></i></span>{{ contract }}</div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div class="bodyguard-content_calendar__dayofmonth--details">
+                        <h4>29</h4>
+                        <div class="contract-card day-off">Day Off</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bodyguard-content_dayoffbutton">
+                <button><span id="request-plus-icon"><i class="fa-solid fa-plus"></i></span>Request</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-content_center">
+                <div class="footer-content_center--image"><img src="{% static 'img/eagle.png' %}" alt=""></div>
+                <div class="footer-content_center--logos">
+                    <span><i class="fa-brands fa-twitter"></i></span>
+                    <span><i class="fa-brands fa-instagram"></i></span>
+                    <span><i class="fa-brands fa-linkedin-in"></i></span>
+                </div>
+                <div class="footer-content_center--seperator">
+                    <div></div>
+                </div>
+            </div>
+            <div class="footer-content_left">
+                <a href="">Legal</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Terms and Conditions</a>
+                <a href="">About Us</a>
+            </div>
+            <div class="footer-content_right">
+                <a href="">Navigation</a>
+                <a href="">Home</a>
+                <a href="">Our services</a>
+                <a href="">Our human</a>
+                <a href="">Contact Us</a>
+            </div>
+        </div> 
+    </footer>
+</body>
+</html>
