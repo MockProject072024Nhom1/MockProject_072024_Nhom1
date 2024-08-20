@@ -12,4 +12,6 @@ public interface IBodyguardService {
 
     BodyguardDTO addBodyguard(BodyguardDTO bodyguardDTO);
 
+    BodyguardDTO updateBodyguard(int id, BodyguardDTO updatedBodyguard);
+
 }

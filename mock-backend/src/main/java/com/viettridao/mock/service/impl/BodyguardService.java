@@ -1,5 +1,6 @@
 package com.viettridao.mock.service.impl;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,19 @@ public class BodyguardService implements IBodyguardService {
     @Override
     public BodyguardDTO addBodyguard(BodyguardDTO bodyguardDTO) {
         BodyguardEntity bodyguardEntity = bodyguardConverter.toEntity(bodyguardDTO);
+        return bodyguardConverter.toDTO(bodyguardRepository.save(bodyguardEntity));
+    }
+
+    @Override
+    public BodyguardDTO updateBodyguard(int id, BodyguardDTO updatedBodyguard) {
+        BodyguardEntity bodyguardEntity = bodyguardRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("BG with id " + id + " not found"));
+        bodyguardEntity.setCertificate(updatedBodyguard.getCertificate() != null ? Base64.getDecoder().decode(updatedBodyguard.getCertificate()) : null);
+        bodyguardEntity.setExperience(updatedBodyguard.getExperience());
+        bodyguardEntity.setSalary(updatedBodyguard.getSalary());
+        bodyguardEntity.setHealth(updatedBodyguard.getHealth());
+        bodyguardEntity.setSkills(updatedBodyguard.getSkills());
+        bodyguardEntity.setStatus(updatedBodyguard.getStatus() != null ? updatedBodyguard.getStatus() : "Working");
+
         return bodyguardConverter.toDTO(bodyguardRepository.save(bodyguardEntity));
     }
 

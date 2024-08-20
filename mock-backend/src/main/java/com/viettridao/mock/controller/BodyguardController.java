@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -103,6 +104,70 @@ public class BodyguardController {
         }
 
         return new ResponseEntity<>(savedUser, HttpStatus.OK);
+    }
+
+    @SuppressWarnings("null")
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<?> updateBodyguard(@PathVariable("id") int id, 
+                                            @RequestParam(value = "firstName", required = false) String firstName, 
+                                            @RequestParam(value = "lastName", required = false) String lastName, 
+                                            @RequestParam(value = "email", required = false) String email, 
+                                            @RequestParam(value = "avatar", required = false) MultipartFile avatar, 
+                                            @RequestParam(value = "address", required = false) String address, 
+                                            @RequestParam(value = "phoneNumber", required = false) String phoneNumber, 
+                                            @RequestParam(value = "gender", required = false) String gender, 
+                                            @RequestParam(value = "dob", required = false) LocalDate dob, 
+                                            @RequestParam(value = "certificate", required = false) MultipartFile certificate, 
+                                            @RequestParam(value = "experience", required = false) BigDecimal experience, 
+                                            @RequestParam(value = "salary", required = false) BigDecimal salary, 
+                                            @RequestParam(value = "health", required = false) String health, 
+                                            @RequestParam(value = "skills", required = false) String skills) throws IOException {        
+        UserDTO existedUser = new UserDTO();
+        existedUser.setFirstName(firstName);
+        existedUser.setLastName(lastName);
+        existedUser.setEmail(email);
+        existedUser.setAddress(address);
+        existedUser.setPhoneNumber(phoneNumber);
+        existedUser.setGender(gender);
+        existedUser.setDob(dob);
+        if (avatar != null && !avatar.isEmpty()) {
+            if (!avatar.getContentType().startsWith("image/")) {
+                return ResponseEntity.badRequest().body("The file is not an image format!");
+            }
+            existedUser.setAvatar(Base64.getEncoder().encodeToString(avatar.getBytes()));            
+        } else {
+            existedUser.setAvatar(null);
+        }
+
+        UserDTO savedUser = userService.updateBodyguard(id, existedUser);
+        if (savedUser != null) {
+            BodyguardDTO existedBodyguard = new BodyguardDTO();
+            // existedBodyguard.setBodyguardId(savedUser.getUserId());
+            existedBodyguard.setExperience(experience);
+            existedBodyguard.setSalary(salary);
+            existedBodyguard.setHealth(health);
+            existedBodyguard.setSkills(skills);
+            if (certificate != null && !certificate.isEmpty()) {
+                if (!certificate.getContentType().startsWith("image/")) {
+                    return ResponseEntity.badRequest().body("The file is not an image format!");
+                }
+                existedBodyguard.setCertificate(Base64.getEncoder().encodeToString(certificate.getBytes()));
+            } else {
+                existedBodyguard.setCertificate(null);
+            }
+
+            BodyguardDTO savedBodyguard = bodyguardService.updateBodyguard(id, existedBodyguard);
+
+            return new ResponseEntity<>(savedBodyguard, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(savedUser, HttpStatus.OK);
+    }
+
+    @PutMapping("ban/{id}")
+    public ResponseEntity<String> banBodyguard(@PathVariable("id") int id) {
+        userService.banBodyguard(id);
+        return ResponseEntity.ok("Banning bodyguard is successfully!");
     }
 
 }
