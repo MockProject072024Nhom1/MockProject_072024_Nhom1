@@ -125,6 +125,7 @@
   "contracts": [
     {
       "contractId": "12345",
+      "customer": "Dennis",
       "signingDate": "2024-13-08",
       "startDate": "2024-08-13",
       "finishDate": "2024-12-13",
@@ -138,6 +139,7 @@
     },
     {
       "contractId": "12346",
+      "customer": "Dennis",
       "signingDate": "2024-13-08",
       "startDate": "2024-09-01",
       "finishDate": "2024-11-30",
@@ -151,6 +153,7 @@
     },
     {
       "contractId": "12347",
+      "customer": "Dennis",
       "signingDate": "2024-13-08",
       "startDate": "2024-10-15",
       "finishDate": "2025-01-15",
@@ -164,6 +167,7 @@
     },
     {
       "contractId": "12348",
+      "customer": "Dennis",
       "signingDate": "2024-13-08",
       "startDate": "2024-11-01",
       "finishDate": "2025-02-01",
@@ -187,6 +191,18 @@
           "venue": "",
           "time": ""
         }
+      ],
+      "shifts": [
+        {
+          "name": "John William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        },
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        }
       ]
     },
     {
@@ -198,6 +214,18 @@
           "finishdate": "",
           "venue": "",
           "time": ""
+        }
+      ],
+      "shifts": [
+        {
+          "name": "John William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        },
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
         }
       ]
     },
@@ -218,6 +246,18 @@
           "venue": "Room 102, Building A",
           "time": "11:00-13:00"
         }
+      ],
+      "shifts": [
+        {
+          "name": "John William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        },
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        }
       ]
     },
     {
@@ -229,6 +269,18 @@
           "finishdate": "2024-08-15",
           "venue": "Room 202, Building B",
           "time": "10:00-12:00"
+        }
+      ],
+      "shifts": [
+        {
+          "name": "John William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        },
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
         }
       ]
     },
@@ -242,6 +294,18 @@
           "venue": "Room 303, Building C",
           "time": "11:00-14:00"
         }
+      ],
+      "shifts": [
+        {
+          "name": "John William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        },
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
+        }
       ]
     },
     {
@@ -253,6 +317,13 @@
           "finishdate": "2024-08-17",
           "venue": "Room 404, Building D",
           "time": "09:00-11:00"
+        }
+      ],
+      "shifts": [
+        {
+          "name": "Nick William",
+          "start_time": "09:00",
+          "end_time": "18:00"
         }
       ]
     },

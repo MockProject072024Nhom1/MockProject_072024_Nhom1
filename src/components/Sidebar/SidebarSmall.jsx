@@ -6,10 +6,10 @@ import {
   HiOutlineBellAlert,
   HiOutlineUserCircle,
   HiOutlineChatBubbleBottomCenterText,
-  HiOutlineQuestionMarkCircle,
-  HiOutlineCog6Tooth,
+  HiMiniChartPie,
   HiCalendarDays,
-  HiClock
+  HiClock,
+  HiBars3CenterLeft
 } from 'react-icons/hi2';
 import ItemSidebarSmall from './ItemSidebarSmall';
 
@@ -20,7 +20,7 @@ const SidebarSmall = ({ role }) => {
       <div className="relative">
         <div className="m-4  h-[calc(100vh-120px)] relative">
           <ul className="mb-4 flex flex-col gap-4  ">
-            {role === 'client' && (
+            {role === 'client' && role !== 'admin' && (
               <>
                 <ItemSidebarSmall
                   to="/"
@@ -34,33 +34,39 @@ const SidebarSmall = ({ role }) => {
                 />
               </>
             )}
-            {role !== 'client' && (
+
+            {role !== 'admin' && (
               <ItemSidebarSmall
-                to="/calendar-bodyguard"
+                to={
+                  role === 'supervisor'
+                    ? '/contracts-supervisor'
+                    : role === 'bodyguard'
+                    ? '/contracts-bodyguard'
+                    : '/contracts'
+                }
+                name={'Contract'}
+                icon={<HiOutlineClipboardDocumentList size={20} />}
+              />
+            )}
+
+            {role !== 'client' && role !== 'admin' && (
+              <ItemSidebarSmall
+                to={
+                  role === 'supervisor'
+                    ? '/schedule-supervisor'
+                    : role === 'bodyguard'
+                    ? '/calendar-bodyguard'
+                    : '/calendar'
+                }
                 name={'Calendar'}
                 icon={<HiCalendarDays size={20} />}
               />
             )}
-            <ItemSidebarSmall
-              to={
-                role === 'supervisor'
-                  ? '/contracts-supervisor'
-                  : role === 'admin'
-                  ? '/contracts-admin'
-                  : role === 'bodyguard'
-                  ? '/contracts-bodyguard'
-                  : '/contracts'
-              }
-              name={'Contract'}
-              icon={<HiOutlineClipboardDocumentList size={20} />}
-            />
-            {role !== 'client' && (
+            {role !== 'client' && role !== 'admin' && (
               <ItemSidebarSmall
                 to={
                   role === 'supervisor'
                     ? '/profile-supervisor'
-                    : role === 'admin'
-                    ? '/profile-admin'
                     : role === 'bodyguard'
                     ? '/profile-bodyguard'
                     : '/profile'
@@ -69,13 +75,25 @@ const SidebarSmall = ({ role }) => {
                 icon={<HiOutlineUserCircle size={20} />}
               />
             )}
+            {role === 'admin' && (
+              <>
+                <ItemSidebarSmall
+                  to="/management-admin"
+                  name={'management'}
+                  icon={<HiBars3CenterLeft size={20} />}
+                />
+                <ItemSidebarSmall
+                  to="/dashboard-admin"
+                  name={'dasboard'}
+                  icon={<HiMiniChartPie size={20} />}
+                />
+              </>
+            )}
             {role !== 'bodyguard' && (
               <ItemSidebarSmall
                 to={
                   role === 'supervisor'
                     ? '/notifications-supervisor'
-                    : role === 'admin'
-                    ? '/notifications-admin'
                     : '/notifications'
                 }
                 name={'Notifications'}
@@ -84,9 +102,16 @@ const SidebarSmall = ({ role }) => {
             )}
             {role === 'supervisor' && (
               <ItemSidebarSmall
-                to="/timekeeping"
+                to="/timekeeping-supervisor"
                 name={'Timekeeping'}
                 icon={<HiClock size={20} />}
+              />
+            )}
+            {role === 'admin' && (
+              <ItemSidebarSmall
+                to="/feedback-admin"
+                name={'Feedback'}
+                icon={<HiOutlineChatBubbleBottomCenterText size={20} />}
               />
             )}
           </ul>

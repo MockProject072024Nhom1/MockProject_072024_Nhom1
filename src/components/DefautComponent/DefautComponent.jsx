@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 import ScrollToTop from '../HeaderComponent/ScrollToTop ';
-import SidebarClient from '../Sidebar/SidebarClient';
 import Footer from '../Footer/Footer';
 import SidebarSmall from '../Sidebar/SidebarSmall';
+import SidebarClient from '../Sidebar/SidebarClient';
 
 function DefautComponent({ children }) {
   const [activeSidebar, setActiveSidebar] = useState('small');
@@ -12,7 +12,7 @@ function DefautComponent({ children }) {
       prevState === 'small' ? 'bigger' : 'small'
     );
   };
-  const [roles, setRoles] = useState('client');
+  const [roles, setRoles] = useState('admin');
   return (
     <div className=" relative  ">
       <div className=" absolute z-30 ">

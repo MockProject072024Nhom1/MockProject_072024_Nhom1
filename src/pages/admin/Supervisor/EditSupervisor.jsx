@@ -1,12 +1,12 @@
 import React from 'react';
 import ProfileForm from '../../../components/Profile/ProfileForm';
 
-const Profile = () => {
+const EditSupervisor = () => {
   return (
     <div>
-      <ProfileForm titleName="Profile" buttonName="Save" />
+      <ProfileForm titleName="Edit Bodyguard" buttonName="Save" />
     </div>
   );
 };
 
-export default Profile;
+export default EditSupervisor;

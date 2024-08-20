@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getContracts } from '../../../api/apifunction';
 
-const Contract = () => {
+const Contract = ({ value, name }) => {
   const [contract, setContract] = useState([]);
   const [error, setError] = useState(null);
 
@@ -38,6 +38,7 @@ const Contract = () => {
                     <TableCell>Contract ID</TableCell>
                     <TableCell align="center">Start Date</TableCell>
                     <TableCell align="center">Finish Date</TableCell>
+                    <TableCell align="right">{name}</TableCell>
                     <TableCell align="right">Venue</TableCell>
                   </TableRow>
                 </TableHead>
@@ -52,6 +53,7 @@ const Contract = () => {
                       </TableCell>
                       <TableCell align="center">{row.startDate}</TableCell>
                       <TableCell align="center">{row.finishDate}</TableCell>
+                      <TableCell align="right">{row[value]}</TableCell>
                       <TableCell align="right">{row.venue}</TableCell>
                     </TableRow>
                   ))}
