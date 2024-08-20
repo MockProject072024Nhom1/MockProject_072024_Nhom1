@@ -60,10 +60,10 @@
                     {% for date in week %}
                     <div class="bodyguard-content_calendar__dayofmonth--details">
                         <h4>{{ date }}</h4>
-                        {% for contract in contracts %}
-                        {% if date in contract %}
-                        <div class="contract-card"><span><i class="fa-regular fa-file-lines"></i></span>{{ contract }}</div>
-                        {% endif %}
+                        {% for tk in timekeeping %}
+                            {% if date == tk.timein|date:"d" %}   
+                            <div class="contract-card"><span><i class="fa-regular fa-file-lines"></i></span>{{ tk.contractid }}</div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                     {% endfor %}
