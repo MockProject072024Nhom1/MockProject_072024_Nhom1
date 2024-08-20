@@ -5,7 +5,7 @@ from .models import Timekeeping, Dayoff
 
 def bg_calendar(request, bg_id):
     week = calculateDayOfWeek()
-    contracts = Timekeeping.objects.filter(bgid = bg_id).values_list('contractid', flat=True)
+    contracts = Timekeeping.objects.filter(bgid = bg_id).values_list('contractid','timein', flat=True)
     return render(request, "SC_30_2.html", {
         "week" : week,
         "contracts": contracts
