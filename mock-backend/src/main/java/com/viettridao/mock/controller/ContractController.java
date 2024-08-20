@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.viettridao.mock.dto.ContractDTO;
+import com.viettridao.mock.dto.SupervisorDTO;
 import com.viettridao.mock.service.IContractService;
 
 import lombok.RequiredArgsConstructor;
@@ -53,7 +54,8 @@ public class ContractController {
                                         @RequestParam(value = "paymentMethod", required = false) String paymentMethod, 
                                         @RequestParam(value = "paymentStatus", required = false) String paymentStatus, 
                                         @RequestParam(value = "contractStatus", required = false) String contractStatus, 
-                                        @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+                                        @RequestParam(value = "file", required = false) MultipartFile file, 
+                                        @RequestParam(value = "supervisorId", required = false) Integer supervisorId) throws IOException {
         ContractDTO newContract = new ContractDTO();
         newContract.setName(name);
         newContract.setStartDate(startDate);
@@ -71,6 +73,12 @@ public class ContractController {
             newContract.setFile(null);
         }
 
+        if (supervisorId != null) {
+            SupervisorDTO supervisorDTO = new SupervisorDTO();
+            supervisorDTO.setSupervisorId(supervisorId);
+            newContract.setSupervisor(supervisorDTO);
+        }
+
         ContractDTO savedContract = contractService.addContract(newContract);
 
         return new ResponseEntity<>(savedContract, HttpStatus.OK);
@@ -86,7 +94,8 @@ public class ContractController {
                                             @RequestParam(value = "paymentMethod", required = false) String paymentMethod, 
                                             @RequestParam(value = "paymentStatus", required = false) String paymentStatus, 
                                             @RequestParam(value = "contractStatus", required = false) String contractStatus, 
-                                            @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {        
+                                            @RequestParam(value = "file", required = false) MultipartFile file, 
+                                            @RequestParam(value = "supervisorId", required = false) Integer supervisorId) throws IOException {
         ContractDTO existedContract = new ContractDTO();
         existedContract.setName(name);
         existedContract.setStartDate(startDate);
@@ -102,6 +111,12 @@ public class ContractController {
             existedContract.setFile(Base64.getEncoder().encodeToString(file.getBytes()));
         } else {
             existedContract.setFile(null);
+        }
+
+        if (supervisorId != null) {
+            SupervisorDTO supervisorDTO = new SupervisorDTO();
+            supervisorDTO.setSupervisorId(supervisorId);
+            existedContract.setSupervisor(supervisorDTO);
         }
 
         ContractDTO updatedContract = contractService.updateContract(id, existedContract);
