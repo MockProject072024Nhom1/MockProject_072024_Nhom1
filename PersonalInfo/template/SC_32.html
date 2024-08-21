@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/SC_32.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1f2c2160df.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section id="bodyguard-section">
+        <div class="bodyguard-sidebar">
+            <div class="bodyguard-sidebar_options">
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-regular fa-calendar-days"></i></span><span class="bodyguard-sidebar_options__text">Calendar</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-regular fa-clock"></i></span><span class="bodyguard-sidebar_options__text">Timekeeping</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-solid fa-user"></i></span><span class="bodyguard-sidebar_options__text">Personal Info</span></a></div>
+                <div class = "bodyguard-sidebar_options__option"><a href="#"><span class="bodyguard-sidebar_options__icons"><i class="fa-solid fa-paperclip"></i></span><span class="bodyguard-sidebar_options__text">Contact</span></a></div>
+            </div>
+        </div>
+        <div class="bodyguard-content">
+            <form action="" class="bodyguard-content_form">
+                <h1>Personal Info</h1>
+                <div class="bodyguard-content_form--name form-section">
+                    <div class="input-section">
+                        <label for="first-name">First Name</label>
+                        <input type="text" name="first-name">
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name</label>
+                        <input type="text" name="last-name">
+                    </div>
+                </div>
+                <div class="bodyguard-content_form--email form-section">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email-input">
+                </div>
+                <div class="bodyguard-content_form--gender form-section" id="gender-container">
+                    <label>Gender</label>
+                    <div>
+                        <input type="radio" name="gender" value="male">
+                        <label for="gender">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" value="female">
+                        <label for="gender">Female</label>
+                    </div>
+                </div>
+                <div class="bodyguard-content_form--jobinfo form-section">
+                    <div>
+                        <label for="file-upload-input">Certificate</label>
+                        <div id="file-upload-button">Upload File</div>
+                        <input type="file" name="certificate" id="file-upload-input">
+                    </div>
+                    <div>
+                        <label for="experience">Experience</label>
+                        <input type="text" name="experience">
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number</label>
+                        <input type="text" name="phone">
+                    </div>
+                    <div>
+                        <label for="service">Service</label>
+                        <select id="inputService" name="service">
+                            <option> Choose...</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="state">State</label>
+                        <select id="inputState" name="state">
+                          <option> Choose...</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="city">City</label>
+                        <select id="inputCity" name="city">
+                                <option> Choose...</option>
+                                  <option>A</option>
+                                  <option>B</option>
+                                  <option>C</option>
+                                  <option>D</option>
+                                  <option>F</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="bodyguard-content_form--password form-section">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password-input">
+                </div>
+            </form>
+            <div class="bodyguard-content_portrait">
+                <div><img src="{% static 'img/blank-portrait.png' %}" alt=""></div>
+                <p>User ID: <span id="user-id">BD001</span></p>
+            </div>
+            <div class="bodyguard-content_qr">
+                <p>My QR</p>
+                <div><img src="{% static 'img/QR_sample.png' %}" alt=""></div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-content_center">
+                <div class="footer-content_center--image"><img src="{% static 'img/eagle.png' %}" alt=""></div>
+                <div class="footer-content_center--logos">
+                    <span><i class="fa-brands fa-twitter"></i></span>
+                    <span><i class="fa-brands fa-instagram"></i></span>
+                    <span><i class="fa-brands fa-linkedin-in"></i></span>
+                </div>
+                <div class="footer-content_center--seperator">
+                    <div></div>
+                </div>
+            </div>
+            <div class="footer-content_left">
+                <a href="">Legal</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Terms and Conditions</a>
+                <a href="">About Us</a>
+            </div>
+            <div class="footer-content_right">
+                <a href="">Navigation</a>
+                <a href="">Home</a>
+                <a href="">Our services</a>
+                <a href="">Our human</a>
+                <a href="">Contact Us</a>
+            </div>
+        </div> 
+    </footer>
+    <script src="{% static '/js/SC_32.js' %}"></script>
+</body>
+</html>
